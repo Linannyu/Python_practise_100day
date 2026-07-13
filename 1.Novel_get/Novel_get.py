@@ -26,9 +26,11 @@ choice = input('Choice number: ')    # Choose Book Num
 
 # 获取书名对应的url
 url = f'''https://www.quanben.io{e.xpath("//div[@class='list2']/h3/a/@href")[int(choice) - 1]}1.html'''
+book_name = e.xpath("//div[@class='list2']/h3/a/span/g mtext()")[int(choice) - 1]
+print(book_name)
 
 
-open('1.Novel_get/诡秘之主.txt','w',encoding='utf-8').close()
+open(f'1.Novel_get/{book_name}.txt','w',encoding='utf-8').close()
 
 # Download Novel
 while True:
@@ -48,12 +50,12 @@ while True:
     try:
         url = f'''https://www.quanben.io{e.xpath("//span//a[text()='下一页']/@href")[0]}'''
     except IndexError:
-        print('下载完成')
+        print('Finish Downloads')
         break
 
 
 
-    with open('1.Novel_get/诡秘之主.txt','a',encoding='utf-8') as f:
+    with open(f'1.Novel_get/{book_name}.txt','a',encoding='utf-8') as f:
         f.write(title + '\n\n' + info + '\n\n')
     
     print(f'正在下载第{title}')
