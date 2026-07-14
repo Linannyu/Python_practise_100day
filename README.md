@@ -4,4 +4,6 @@
 |---|---|---|---|---|
 | Day 1 | Novel_get | 从网站上搜索并下载小说 | requests、XPath | 7/12/2026 |
 | Day 2 | Activity_Picker | 随机选择日常活动的抽奖系统 | Flask | 7/13/2026 |
-| Day 3 | 待更新 | Coming soon... | 待更新 | 待更新 |
+| Day 3 | Trian_Ticket_Check | 从12306查询车票信息 | requests、prettytable、json | 7/14/2026 |
+| Day 3 补充内容 | bisection_method | 二分法 | 暂定 | 暂定 |
+| Day 4 | 待更新 | 待更新 | 待更新 | 待更新 |
