@@ -6,4 +6,6 @@
 | Day 2 | Activity_Picker | 随机选择日常活动的抽奖系统 | Flask | 7/13/2026 |
 | Day 3 | Trian_Ticket_Check | 从12306查询车票信息 | requests、prettytable、json | 7/14/2026 |
 | Day 3 补充内容 | bisection_method | 二分法 | 暂定 | 暂定 |
-| Day 4 | 待更新 | 待更新 | 待更新 | 待更新 |
+| Day 4 | OpenCV_FaceRec | 人脸识别检测 | opencv | 7/15/2026 |
+| Day 5 | 待更新 | 待更新 | 待更新 | 待更新 |
+
