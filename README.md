@@ -7,5 +7,5 @@
 | Day 3 | Trian_Ticket_Check | 从12306查询车票信息 | requests、prettytable、json | 7/14/2026 |
 | Day 3 补充内容 | bisection_method | 二分法 | 暂定 | 暂定 |
 | Day 4 | OpenCV_FaceRec | 人脸识别检测 | opencv | 7/15/2026 |
-| Day 5 | Tkinter | 学习Tkinter的使用方法 | Tkinter | 7/16/2026 |
-| Day 6 | 待更新 | 待更新 | 待更新 | 待更新 |
+| Day 5、Day 6 | Tkinter | 学习Tkinter的使用方法 | Tkinter | 7/16/2026 |
+| Day 7 | 待更新 | 待更新 | 待更新 | 待更新 |

@@ -57,9 +57,43 @@ a1.protocol('WM_DELETE_WINDOW', guan)
 
 # 标签组件 Label
 # 创建在哪个窗口下：a1。标签显示什么文本：text。font('字体‘，尺寸)。fg是字体颜色。bg背景颜色.
-a3 = tk.Label(a1,text ='这是一个东西', font=('微软雅黑', 20), fg='red', bg='black')
-# 填充布局 pack()
-a3.pack() #布局 显示在窗口哪里
+## a3 = tk.Label(a1,text ='账号', font=('微软雅黑', 20), fg='red', bg='black')
+
+# 三种布局都只是设置这个组件的位置，布局是可以直接1以.pack()的格式写在label后面，
+    # 例如tk.Label(a1,text ='这是一个东西', font=('微软雅黑', 20), fg='red', bg='black').pack()
+# 填充布局 pack() 默认布局，
+## a3.pack() #布局 显示在窗口哪里
+    
+# 自定义布局 place(x,y)设置组件的位置，不能超过窗口大小的范围
+## a3.place(x=100, y=100)
+
+# 网格布局 grid(row,column) 行，列 有一个自动填充例如一个在c=1，另一个c=3，第二个c也还是在c=2的位置
+## a3.grid(row=1, column=1)
+
+
+# 字符串变量 StringVar
+s1 = tk.StringVar() #创建一个字符串变量
+s1.set('请输入账号') # 当成一个提示文本
+
+s2 = tk.StringVar()
+s2.set('请输入密码')
+
+# 输入框组件 Entry
+tk.Label(a1, text='账号', width=3, font=('微软雅黑', 20)).place(x=50, y=100)
+tk.Label(a1, text='密码', width=3, font=('微软雅黑', 20)).place(x=50, y=150)
+# textvariable就是要用来绑定的变量
+tk.Entry(a1, textvariable=s1, font=('微软雅黑', 20)).place(x=110, y=100)
+tk.Entry(a1, textvariable=s2, font=('微软雅黑', 20)).place(x=110, y=150)
+
+def dl():
+    # 字符串变量获取 通过.get()方法
+    print(f'输入的账号:{s1.get()}')
+    print(f'输入的密码:{s2.get()}')
+    
+# 按钮 Button,command是点击按钮后执行的函数
+tk.Button(a1,command=dl, width=5, text='登录', font=('微软雅黑', 20)).place(x=150, y=200)
+
+ 
 
 # 10.开启窗口/主循环
 a1.mainloop()
