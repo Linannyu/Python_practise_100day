@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engwold</title>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* CSS overflow 属性用于控制内容溢出元素框时显示的方式。 */
+    overflow: hidden;
+    background-color: #333;
+    height: 100px;
+    /* 导航栏靠右*/
+    display: flex;
+    justify-content: flex-end;
+}
+
+li {
+    /* 元素怎样浮动 */
+    float: left;
+}
+
+/* 设置字体 */
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 80px;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 3px solid white;  /* 设置边框线条 */
+    height: 60px;
+    font-size: 40px;
+
+}
+/* 鼠标移动到这里的样式 */
+li a:hover:not(.active) {
+    background-color: green;
+}
+
+/* 默认激活的样式 */
+.active {
+    background-color: green;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#learn">学习</a></li>
+  <li><a href="#quiz">测验</a></li>
+  <li><a href="#book">错题本</a></li>
+  <li><a href="#game">游戏</a></li>
+  <li><a href="#stroy">故事</a></li>
+</ul>
+</body>
+</html>
