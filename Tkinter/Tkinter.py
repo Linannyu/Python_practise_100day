@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 # 1.创建窗口
     # Tk()：Tk 类的构造函数（创建对象），调用它会创建一个主窗口。
@@ -46,10 +47,14 @@ a1.attributes('-alpha', 1)
 a1.attributes('-topmost', True)
 
 # 8.设置窗口关闭时执行的函数
+
 def guan():
-    print("关闭了")
-    # 9.销毁窗口
-    a1.destroy()
+    d1 = messagebox.askokcancel('是否关闭','确定继续关闭吗？')
+    if d1:
+        # 9.销毁窗口
+        a1.destroy()
+    else:
+        pass
 
 a1.protocol('WM_DELETE_WINDOW', guan)
 
@@ -82,18 +87,59 @@ s2.set('请输入密码')
 tk.Label(a1, text='账号', width=3, font=('微软雅黑', 20)).place(x=50, y=100)
 tk.Label(a1, text='密码', width=3, font=('微软雅黑', 20)).place(x=50, y=150)
 # textvariable就是要用来绑定的变量
-tk.Entry(a1, textvariable=s1, font=('微软雅黑', 20)).place(x=110, y=100)
+# state='normal'是默认状态，'disabled'是禁用状态，'readonly'是只读状态
+tk.Entry(a1,state='normal', textvariable=s1, font=('微软雅黑', 20)).place(x=110, y=100)
 tk.Entry(a1, textvariable=s2, font=('微软雅黑', 20)).place(x=110, y=150)
 
 def dl():
     # 字符串变量获取 通过.get()方法
     print(f'输入的账号:{s1.get()}')
     print(f'输入的密码:{s2.get()}')
+    if s1.get() == '123' and s2.get() == '123':
+        messagebox.showinfo('提示', '登录成功')
+    else:
+        d1 = messagebox.askokcancel('ERROR', '账号或密码错误')
+        if d1:# 选择ok
+            print('重新输入')
+        else:# 选择cacel
+            print('关闭窗口')
     
 # 按钮 Button,command是点击按钮后执行的函数
-tk.Button(a1,command=dl, width=5, text='登录', font=('微软雅黑', 20)).place(x=150, y=200)
+tk.Button(a1,command=dl, width=5, text='登录', font=('微软雅黑', 20)).place(x=250, y=200)
 
- 
+# 四种弹窗组件 messagebox，需要从tkinter导入messagebox。
+## messagebox.showerror('标题', '内容')     红色的三角感叹号
+## messagebox.showinfo('标题', '内容')      蓝色的三角感叹号
+## messagebox.showwarning('标题', '内容')   黄色的三角感叹号
+## messagebox.askokcancel('标题', '内容')   多了一个cancel的按钮。应用场景很多，可以做二次阻拦。可以判断用户选择的是ok还是cancel。
+
+
+
+s3 = tk.StringVar() #创建一个字符串变量
+s3.set('请输入账号') # 当成一个提示文本
+
+s4 = tk.StringVar()
+s4.set('请输入密码')
+
+    
+
+# 顶层窗口/内层窗口 Toplevel()。 在主窗口内又打开了一个窗口
+## a3 = tk.Toplevel()
+
+def zc():
+    a3 = tk.Toplevel()
+    a3.title('注册页面')
+    a3.geometry('500x500')
+    a3.resizable(width=False , height=False)
+    a3.iconbitmap('Tkinter/plum.ico')
+    tk.Label(a3, text='账号: ', font=('微软雅黑', 20)).grid(row=1, column=1)
+    tk.Entry(a3,textvariable=s3, font=('微软雅黑', 20)).grid(row=1, column=2)
+    tk.Label(a3, text='密码: ', font=('微软雅黑', 20)).grid(row=2, column=1)
+    tk.Entry(a3,textvariable=s4, font=('微软雅黑', 20)).grid(row=2, column=2)
+    tk.Button(a3,text='确定注册',font=('微软雅黑', 20)).place(x=100, y=100)
+
+tk.Button(a1,command=zc, width=5, text='注册', font=('微软雅黑', 20)).place(x=120, y=200)
+
 
 # 10.开启窗口/主循环
 a1.mainloop()
