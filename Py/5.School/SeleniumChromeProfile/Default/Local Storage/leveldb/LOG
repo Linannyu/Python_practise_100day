@@ -1,0 +1,14 @@
+2026/07/15-22:48:42.547 22dc63 Reusing MANIFEST /Users/lin./Documents/Python_practise_100day/5.School/SeleniumChromeProfile/Default/Local Storage/leveldb/MANIFEST-000001
+2026/07/15-22:48:42.549 22dc63 Recovering log #8
+2026/07/15-22:48:42.550 22dc63 Reusing old log /Users/lin./Documents/Python_practise_100day/5.School/SeleniumChromeProfile/Default/Local Storage/leveldb/000008.log 
+2026/07/15-22:49:42.556 22dc66 Level-0 table #11: started
+2026/07/15-22:49:42.563 22dc66 Level-0 table #11: 19784 bytes OK
+2026/07/15-22:49:42.566 22dc66 Delete type=0 #8
+2026/07/15-22:49:42.570 22dc63 Compacting 4@0 + 0@1 files
+2026/07/15-22:49:42.574 22dc63 Generated table #12@0: 52 keys, 20207 bytes
+2026/07/15-22:49:42.574 22dc63 Compacted 4@0 + 0@1 files => 20207 bytes
+2026/07/15-22:49:42.575 22dc63 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/07/15-22:49:42.576 22dc63 Delete type=2 #3
+2026/07/15-22:49:42.576 22dc63 Delete type=2 #6
+2026/07/15-22:49:42.576 22dc63 Delete type=2 #11
+2026/07/15-22:49:42.576 22dc63 Delete type=2 #8
