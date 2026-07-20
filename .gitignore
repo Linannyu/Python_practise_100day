@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Sensitive files
+Py/5.School/password.py
+
+# Selenium profile
+Py/5.School/SeleniumChromeProfile/
+
+# Python cache
+__pycache__/

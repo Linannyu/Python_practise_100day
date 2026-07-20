@@ -22,6 +22,7 @@ user = input('请输入想要选择的网页编号：')
 
 driver = webdriver.Chrome(options=options)
 
+
 if user == '1':
     driver.get("https://classroom.google.com/")
 elif user == '2':
@@ -37,3 +38,5 @@ elif user == '2':
 elif user == '3':
     driver.get("https://app.overgrad.com/login")
     driver.find_element(By.CSS_SELECTOR, ".g-signin2").click()
+elif user == '4':
+    driver.get("https://digital.fidelity.com/ftgw/digital/portfolio/balances")
