@@ -76,6 +76,12 @@ a1.protocol('WM_DELETE_WINDOW', guan)
 ## a3.grid(row=1, column=1)
 
 
+
+
+
+
+
+
 # 字符串变量 StringVar
 s1 = tk.StringVar() #创建一个字符串变量
 s1.set('请输入账号') # 当成一个提示文本
@@ -95,10 +101,13 @@ def dl():
     # 字符串变量获取 通过.get()方法
     print(f'输入的账号:{s1.get()}')
     print(f'输入的密码:{s2.get()}')
-    if s1.get() == '123' and s2.get() == '123':
-        messagebox.showinfo('提示', '登录成功')
+    if s1.get() in hao:
+        if s2.get() == hao[s1.get()]:
+            messagebox.showinfo('提示', '登录成功')
+        else:
+            messagebox.showerror('提示', '密码错误')
     else:
-        d1 = messagebox.askokcancel('ERROR', '账号或密码错误')
+        d1 = messagebox.askokcancel('ERROR', '账号不存在')
         if d1:# 选择ok
             print('重新输入')
         else:# 选择cacel
@@ -126,7 +135,22 @@ s4.set('请输入密码')
 # 顶层窗口/内层窗口 Toplevel()。 在主窗口内又打开了一个窗口
 ## a3 = tk.Toplevel()
 
+hao = {}
+a3 = None
+def zc2():
+    # global 全局变量
+    global hao
+    if s3.get() not in hao:
+        hao[s3.get()] = s4.get()
+        messagebox.showinfo('成功', '注册成功')
+        print(hao)
+        a3.destroy()
+    else:
+        messagebox.showerror('提示', '账号已存在')
+
+
 def zc():
+    global a3
     a3 = tk.Toplevel()
     a3.title('注册页面')
     a3.geometry('500x500')
@@ -136,9 +160,29 @@ def zc():
     tk.Entry(a3,textvariable=s3, font=('微软雅黑', 20)).grid(row=1, column=2)
     tk.Label(a3, text='密码: ', font=('微软雅黑', 20)).grid(row=2, column=1)
     tk.Entry(a3,textvariable=s4, font=('微软雅黑', 20)).grid(row=2, column=2)
-    tk.Button(a3,text='确定注册',font=('微软雅黑', 20)).place(x=100, y=100)
+    tk.Button(a3,command=zc2, text='确定注册',font=('微软雅黑', 20)).place(x=100, y=100)
 
 tk.Button(a1,command=zc, width=5, text='注册', font=('微软雅黑', 20)).place(x=120, y=200)
+
+
+
+a4 = tk.Tk()
+a4.title('bibi')
+a4.geometry('500x500')
+
+# 创建主菜单
+menu = tk.Menu(a4)
+# 设置菜单名
+menu.add_cascade(label='员工')
+menu.add_cascade(label='员工2')
+
+
+# 开启菜单栏
+a4.config(menu=menu)
+
+a4.mainloop()
+
+
 
 
 # 10.开启窗口/主循环
