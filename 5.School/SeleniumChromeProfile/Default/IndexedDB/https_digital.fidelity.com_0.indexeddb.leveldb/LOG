@@ -1,4 +1,0 @@
-2026/07/19-22:46:24.740 4bb371 Reusing MANIFEST /Users/lin./Documents/Python_practise_100day/5.School/SeleniumChromeProfile/Default/IndexedDB/https_digital.fidelity.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/07/19-22:46:24.740 4bb371 Recovering log #3
-2026/07/19-22:46:24.741 4bb371 Reusing old log /Users/lin./Documents/Python_practise_100day/5.School/SeleniumChromeProfile/Default/IndexedDB/https_digital.fidelity.com_0.indexeddb.leveldb/000003.log 
-2026/07/19-22:46:24.745 4bb37e Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
