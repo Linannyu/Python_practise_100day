@@ -1,1 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# macOS
 .DS_Store
+
+# VS Code
+.vscode/
+
+# Secrets
+password.py
+**/password.py
+secret.py
+secrets.py
+.env
+.env.*
+
+# Selenium Chrome Profile
+SeleniumChromeProfile/
+**/SeleniumChromeProfile/
+
+# Chrome Data
+Default/
+Cache/
+Code Cache/
+GPUCache/
+Local Storage/
+Session Storage/
+Network/
+Cookies
+History
+
+# Logs
+*.log
+
+# Databases
+*.db
+*.sqlite
