@@ -28,7 +28,7 @@ if user == '1':
 elif user == '2':
     driver.get("https://prod.idp.collegeboard.org/oauth2/aus3koy55cz6p83gt5d7/v1/authorize?client_id=0oa3koxakyZGbffcq5d7&response_type=code&scope=openid%20email%20profile&redirect_uri=https://account.collegeboard.org/login/exchangeToken&state=cbAppDurl&nonce=-0-icO287JoECt-IHxTl0Q")
     time.sleep(1)
-    driver.find_element(By.ID, "input28").send_keys(account + Keys.ENTER)
+    driver.find_element(By.ID, "input28").send_keys(accounts + Keys.ENTER)
     time.sleep(1)
     driver.find_element(By.ID, "input56").send_keys(collegeboard_Password + Keys.ENTER)
     time.sleep(3)

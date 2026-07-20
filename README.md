@@ -8,4 +8,4 @@
 | Day 3 补充内容 | bisection_method | 二分法 | 暂定 | 暂定 |
 | Day 4 | OpenCV_FaceRec | 人脸识别检测 | opencv | 7/15/2026 |
 | Day 5、6、7、8 | Tkinter | 学习Tkinter的使用方法 | Tkinter | 7/16/2026 |
-
+| Day 9 | math_calculator | 练习AP Calculus的题目用def进行解题 | math库 | 7/20/2026 |
