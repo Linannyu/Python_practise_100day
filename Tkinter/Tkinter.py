@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter.ttk import Combobox
 
 # 1.创建窗口
     # Tk()：Tk 类的构造函数（创建对象），调用它会创建一个主窗口。
@@ -176,12 +177,21 @@ menu = tk.Menu(a4)
 menu.add_cascade(label='员工')
 menu.add_cascade(label='员工2')
 
+# 创建下级菜单
+down = tk.Menu(menu)
+down.add_command(label='小员工', command=' ')
+# 绑定到主菜单
+# menu.add_cascade(menu=down) or menu.add_cascade(label='添加', menu=down)
+
+menu.add_cascade(label='添加', menu=down)
 
 # 开启菜单栏
 a4.config(menu=menu)
 
 a4.mainloop()
 
+# 创建下拉列表(组合框)
+# 需要from tkinter.ttk import Combobox
 
 
 
