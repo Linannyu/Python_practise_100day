@@ -23,7 +23,7 @@ options.add_argument(
 
 options.add_experimental_option("detach", True)
 
-print('1.Classroom\n2.College Board\n3.Overgrad \n4.ConEdison \n5.nationalgrid')
+print('1.Classroom\n2.College Board\n3.Overgrad \n4.ConEdison \n5.nationalgrid \n6.DeltaMath')
 user = input('请输入想要选择的网页编号：')
 
 driver = webdriver.Chrome(options=options)
@@ -31,6 +31,7 @@ driver = webdriver.Chrome(options=options)
 
 if user == '1':
     driver.get("https://classroom.google.com/")
+
 elif user == '2':
     driver.get("https://prod.idp.collegeboard.org/oauth2/aus3koy55cz6p83gt5d7/v1/authorize?client_id=0oa3koxakyZGbffcq5d7&response_type=code&scope=openid%20email%20profile&redirect_uri=https://account.collegeboard.org/login/exchangeToken&state=cbAppDurl&nonce=-0-icO287JoECt-IHxTl0Q")
     time.sleep(1)
@@ -41,6 +42,7 @@ elif user == '2':
     driver.find_element(By.CSS_SELECTOR, "a.cb-btn-primary").click()
     time.sleep(4)
     driver.find_element(By.CSS_SELECTOR, "button[aria-label='Continue']").click()
+
 elif user == '3':
     driver.get("https://app.overgrad.com/login")
     driver.find_element(By.CSS_SELECTOR, ".g-signin2").click()
@@ -95,3 +97,13 @@ elif user == '5':
     time.sleep(2)
     review = driver.find_element(By.CSS_SELECTOR, "button.btn.btn-primary.primary-background-color.primary-border-color").click()
     driver.execute_script("arguments[0].click();", review)
+
+elif user == '6':
+    driver.get("https://www.deltamath.com/sign-in?redirectUrl=student/5403260/33307131/d45e43e9f5e41d7aa66c041fb8d958be")
+    driver.find_element(By.CLASS_NAME, "nsm7Bb-HzV7m-LgbsSe-BPrWId").click()
+    time.sleep(1)
+    driver.switch_to.window(driver.window_handles[-1]) # 切换到新窗口
+    driver.find_element(By.CLASS_NAME, "LbOduc").click()
+    time.sleep(3)
+    driver.find_element(By.ID, "username").send_keys(School_Email + Keys.ENTER)
+    driver.find_element(By.ID, "password-input").send_keys(School_Password + Keys.ENTER)
