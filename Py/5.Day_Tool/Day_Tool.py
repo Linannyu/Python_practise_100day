@@ -16,7 +16,7 @@ options = Options()
 
 # 使用 Selenium 专用的 Chrome 用户数据目录
 options.add_argument(
-    "--user-data-dir=/Users/lin./Documents/Python_practise_100day/5.School/SeleniumChromeProfile"
+    "--user-data-dir=/Users/lin./Documents/Python_practise_100day/Py/5.Day_Tool/SeleniumChromeProfile"
 )
 
 # Python 程序结束后保留 Chrome 窗口
