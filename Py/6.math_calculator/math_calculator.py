@@ -4,6 +4,10 @@ from sympy import symbols, Eq, solve, sin, cos, tan, sympify # 使用SymPy的符
 from sympy import expand, pretty, factor # 使用SymPy的展开函数
 import math
 
+
+
+######## DeltaMath : 2026 AP Calc BC Summer Prep########
+### Summer Assignment #1: Pre-Calculus Review ###
 # Solve System of Equations
 def Solve(sums, product):
     for a in range(-product,product + 1):
@@ -147,26 +151,34 @@ def trig_equation_solution(fun, value):
                angles = [0, 180]
      # 保留一位小数
      print(sorted(round(angle, 1) for angle in angles))
+
 # Linear Trigonometric Equations
 def lte(fun = None,function = None, x = None):
      sol = solve(function, x)
      sol1 = inverse_trig(sol[0], fun)
      trig_equation_solution(fun, sol1)
 
-def calu():
+def calu(meth=None,eq=None):
      x = symbols('x')
      y = symbols('y')
+     '''
      meth = input('请输入您想使用的计算方法：')
      eq = input('请输入您想计算的方程：')
-
+     '''
+     if '=' not in eq:
+          eq = sympify(eq) # 将字符串转换为sympy表达式
+     
      if meth == 'expand':
           print(pretty(expand(eq)))
+          return pretty(expand(eq))
      elif meth == 'factor':
           print(pretty(factor(eq)))
+          return pretty(factor(eq))
      elif meth == 'solve':
           left, right = eq.split("=")
           eq = Eq(sympify(left), sympify(right))
           print(solve(eq, x))
+          return solve(eq, x)
      
      
 # Solve(13, 42)
@@ -182,4 +194,4 @@ expr = (3*x-10)**2 - (x+1)**2
 print(pretty(factor(expand(expr))))
 calu()
 '''
-calu()
+

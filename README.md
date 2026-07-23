@@ -11,4 +11,5 @@
 | Day 9 | math_calculator | 练习AP Calculus的题目用def进行解题 | math库 | 7/20/2026 |
 | Day 10 | Tkinter | 创建Menu和下拉 | Tkinter | 7/21/2026 |
 | Day 10 补充内容 | 5.Day_Tool | 5.School rename become 5.Day_Tool，补充Choose 4 and 5 | 7/21/2026 |
-| Day 11 | 待定 | 待定 | 待定 | 7/22/2026 |
+| Day 11 | math_calculator | 整理Note | Py and Math | 7/22/2026 |
+| Day 12 | 暂定 | 暂定 | 暂定 | 7/23/2026 |
