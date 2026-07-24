@@ -100,7 +100,7 @@ def valueerence_angle(angle):
           return None,0
 
 # 输入函数值 -> 求反三角函
-def inverse_trig(value = None,fun = None):
+def inverse_trig(fun = None, value = None):
      if fun == 'sin':
           angle = math.degrees(math.asin(value))
      elif fun == 'cos':
@@ -127,6 +127,7 @@ def exact_value(function, angle):
      else:
           print(-value)
           return -value
+     
 def trig_equation_solution(fun, value):
      if fun =='sin':
           if value > 0:
@@ -179,7 +180,21 @@ def calu(meth=None,eq=None):
           eq = Eq(sympify(left), sympify(right))
           print(solve(eq, x))
           return solve(eq, x)
-     
+
+def reciprocal_convert(fun, value):
+     if fun == 'csc':
+          print(1 / value)
+          value = 1 / value
+          return sin,value
+     elif fun == 'sec':
+          print(1 / value)
+          value = 1 / value
+          return cos,value
+     elif fun == 'tan':
+          print(1 / value)
+          value = 1 / value
+          return tan,value
+
      
 # Solve(13, 42)
 # trig(opposite=sqrt(26), hypotenuse=10, function='sin')
@@ -194,4 +209,5 @@ expr = (3*x-10)**2 - (x+1)**2
 print(pretty(factor(expand(expr))))
 calu()
 '''
-
+a = reciprocal_convert('csc',2)
+print(a)
