@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.ttk import Combobox
+from tkinter import END
 
 # 1.创建窗口
     # Tk()：Tk 类的构造函数（创建对象），调用它会创建一个主窗口。
@@ -29,7 +30,7 @@ a1.geometry('500x500+200+200')
 a1.resizable(width=False , height=False)
 
 #设置窗口图标,只支持ico格式的图标,png jgp图片格式要去转换.
-a1.iconbitmap('Tkinter/plum.ico') # 可以传相对路径和绝对路径
+a1.iconbitmap('Tkinter/plum.png') # 可以传相对路径和绝对路径
 
 
 
@@ -156,7 +157,7 @@ def zc():
     a3.title('注册页面')
     a3.geometry('500x500')
     a3.resizable(width=False , height=False)
-    a3.iconbitmap('Tkinter/plum.ico')
+    a3.iconbitmap('Tkinter/plum.png')
     tk.Label(a3, text='账号: ', font=('微软雅黑', 20)).grid(row=1, column=1)
     tk.Entry(a3,textvariable=s3, font=('微软雅黑', 20)).grid(row=1, column=2)
     tk.Label(a3, text='密码: ', font=('微软雅黑', 20)).grid(row=2, column=1)
@@ -177,9 +178,83 @@ menu = tk.Menu(a4)
 menu.add_cascade(label='员工')
 menu.add_cascade(label='员工2')
 
+tk.Label(a4, text='员工列表：', font=('微软雅黑', 20),fg='red').place(x=1, y=5)
+lb = tk.Listbox(a4,font=('微软雅黑',20), width=25, height=13) # pady(x,y)x距离上方的留白,y是距离下方的留白距离。可以用其他布局place，grid
+lb.pack(pady=(50,0))
+
+# 创建下拉列表(组合框)
+# 需要from tkinter.ttk import Combobox
+# 创建单选框
+# 顶层窗口焦点
+def t():
+    t1 = tk.Toplevel()
+    t1.title('城市')
+    t1.geometry('500x300+400+200')
+    t1.resizable(True, True)
+    t1.iconbitmap('Tkinter/plum.png')
+
+    # 设置顶层窗口焦点
+    t1.focus_set()
+
+    tk.Label(t1, text='下拉', font=('微软雅黑', 20)).grid(row=1, column=1)
+    tk.Label(t1, text='性别', font=('微软雅黑', 20)).grid(row=2, column=1)
+    tk.Label(t1, text='爱好', font=('微软雅黑', 20)).grid(row=3, column=1)
+
+
+    t2 = tk.StringVar() # 创建一个字符串变量
+    s1 = tk.StringVar(value='男') # 默认选择男/初始化
+
+    # 创建整数变量
+    s2 = tk.IntVar()
+    s3 = tk.IntVar()
+
+    t3 = ['北京','上海','广州']
+    # 创建下拉列表（组合框）
+    t4 = Combobox(t1,state = 'readonly', width=5 ,textvariable=t2, values=t3, font=('微软雅黑', 20))
+    # 设置下拉列表组件默认显示列表内哪个下标索引
+    t4.current(0) # 设置默认选择第一个
+    t4.grid(row=1, column=2)
+
+    # 创建单选框
+    tk.Radiobutton(t1, font=('微软雅黑',15),text='男', variable=s1, value='男').grid(row=2, column=2)
+    tk.Radiobutton(t1, font=('微软雅黑',15),text='女', variable=s1, value='女').grid(row=2, column=3)
+
+    # 创建多选框 Checkbutton 
+    # onvalue 选择这个返回什么值,offvalue 不选择这个返回什么值
+    tk.Checkbutton(t1, font=('微软雅黑',15),text='篮球', variable=s2, onvalue=1, offvalue=0).grid(row=3, column=2)
+    tk.Checkbutton(t1, font=('微软雅黑',15),text='足球', variable=s3, onvalue=1, offvalue=0).grid(row=3, column=3)
+    
+    def tj():
+        print(f'选择的城市是：{t2.get()}')
+        print(f'选择的性别是：{s1.get()}')
+        if s2.get() == 1:
+            print(f'选择的运动是：篮球')
+            hob1 = '篮球'
+        else:
+            print(f'选择的运动是：无')
+            hob1 = '无'
+        if s3.get() == 1:
+            print(f'选择的运动是：足球')
+            hob2 = '足球'
+        else:
+            print(f'选择的运动是：无')
+            hob2 = '无'
+
+        nei = f'{t2.get()}，{s1.get()}，{hob1},{hob2}'
+        lb.insert(END, nei)
+
+    tk.Button(t1, text='提交', font=('微软雅黑', 20),command=tj).grid(row=4, column=1)
+
+
+# 创建多选框 Checkbutton
+# 创建整数变量 IntVar()
+
+# 创建列表框 Listbox
+# 导入包：from tkinter import END
+
 # 创建下级菜单
 down = tk.Menu(menu)
-down.add_command(label='小员工', command=' ')
+down.add_command(label='小员工', command=t)
 # 绑定到主菜单
 # menu.add_cascade(menu=down) or menu.add_cascade(label='添加', menu=down)
 
@@ -190,8 +265,6 @@ a4.config(menu=menu)
 
 a4.mainloop()
 
-# 创建下拉列表(组合框)
-# 需要from tkinter.ttk import Combobox
 
 
 
