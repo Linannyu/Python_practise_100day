@@ -15,5 +15,5 @@
 | Day 12 | DateAnnotation | DateAnnotation的decode的题目 | requests、XPath | 7/23/2026 |
 | Day 13 | Tkinter | 学习完基本功能 | Tkinter | 7/24/2026 |
 | Day 14 | Cybersecurity | 网络安全 | 计算机基本知识 | 7/26/2026 |
-| Day 15 | Cyber_Day1 | 第一天下载Burp | 进行了解使用 | 7/27/2026 |
+| Day 15 | AI-Hacker-Roadmap | 利用Chatgpt给我指定一个挖漏洞的30天符合我的学习方式 | 下载Burp | 7/27/2026 |
 | Day 16 | 暂定 | 暂定 | 暂定 | 7/28/2026 |
