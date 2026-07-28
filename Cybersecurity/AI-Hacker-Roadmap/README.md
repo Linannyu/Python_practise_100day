@@ -21,7 +21,8 @@
 ## 当前进度
 
 - **Current Level:** Level 1 — Packet Explorer
-- **Current Day:** Day 1 / 30
+- **Current Day:** Day 2 / 30
+- **Last Completed:** Day 1 — 2026-07-27
 - **Completed Labs:** 0
 - **Completed Scripts:** 0
 - **Started:** 2026-07-27
@@ -73,7 +74,7 @@ AI-Hacker-Roadmap/
 打开：
 
 ```text
-Daily/Day01.md
+Daily/Day02.md
 ```
 
 完成任务后更新结果，并进行一次 Git commit。

@@ -168,22 +168,22 @@ name=lin
 
 ### Burp 是否成功打开？
 
-- [✅] 成功
+- [x] 成功
 - [ ] 失败
 
 ### HTTP history 是否看到请求？
 
-- [✅] 成功
+- [x] 成功
 - [ ] 失败
 
 ### 是否成功发送到 Repeater？
 
-- [✅] 成功
+- [x] 成功
 - [ ] 失败
 
 ### 修改后响应是否出现 hacker？
 
-- [✅] 成功
+- [x] 成功
 - [ ] 失败
 
 ## 我的实际结果
@@ -243,7 +243,7 @@ Access-Control-Allow-Credentials: true
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36", 
     "X-Amzn-Trace-Id": "Root=1-6a6825be-3cff559f62ca7dcf7587596e"
   }, 
-  "origin": "47.230.57.142", 
+  "origin": "[已隐藏]",
   "url": "https://httpbin.org/get?name=hacker"
 }
 
