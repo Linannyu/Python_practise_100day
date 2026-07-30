@@ -1,13 +1,13 @@
 # 30-Day AI Hacker Roadmap
 
-这份路线会根据每天的完成情况调整，不要求提前学习后面的内容。
+Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完成情况调整。可以提前查看，不要求提前完成或跳过基础。
 
 ## Week 1 — Packet Explorer
 
 目标：学会观察、拦截和修改 Web 请求。
 
 - [x] Day 1：使用 Burp Suite 抓取并修改一个 GET 请求
-- [ ] Day 2：理解 URL、参数、请求头和响应
+- [x] Day 2：理解 URL、参数、请求头和响应
 - [ ] Day 3：区分 GET 与 POST
 - [ ] Day 4：理解 Cookie 与 Session
 - [ ] Day 5：在授权靶场中修改客户端参数

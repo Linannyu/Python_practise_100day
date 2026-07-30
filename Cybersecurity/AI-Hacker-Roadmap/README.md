@@ -21,8 +21,8 @@
 ## 当前进度
 
 - **Current Level:** Level 1 — Packet Explorer
-- **Current Day:** Day 2 / 30
-- **Last Completed:** Day 1 — 2026-07-27
+- **Current Day:** Day 3 / 30
+- **Last Completed:** Day 2 — 2026-07-29
 - **Completed Labs:** 0
 - **Completed Scripts:** 0
 - **Started:** 2026-07-27
@@ -32,6 +32,14 @@
 每天最低完成一个 **10 分钟核心任务**。
 
 状态好时继续完成扩展挑战；状态不好时，只完成核心任务也算成功。
+
+Day 1–Day 30 的课程文件已经提前生成，完整入口见：
+
+```text
+Daily/INDEX.md
+```
+
+提前生成不代表必须机械执行。每天完成后先让我检查；后续任务可以根据你的实际结果调整，但不会跳过必要基础。
 
 每天至少留下一个成果：
 
@@ -62,11 +70,13 @@ AI-Hacker-Roadmap/
 ├── RULES.md
 ├── Daily/
 ├── Labs/
+├── Reports/
 ├── Scripts/
 ├── Payloads/
 ├── Tools/
 ├── Resources/
-└── Images/
+├── Images/
+└── .gitignore
 ```
 
 ## 今日任务
@@ -74,7 +84,7 @@ AI-Hacker-Roadmap/
 打开：
 
 ```text
-Daily/Day02.md
+Daily/Day03.md
 ```
 
 完成任务后更新结果，并进行一次 Git commit。

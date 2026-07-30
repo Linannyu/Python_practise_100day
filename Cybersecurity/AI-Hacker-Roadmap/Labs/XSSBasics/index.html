@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 10 XSS Context Lab</title>
+  </head>
+  <body>
+    <main>
+      <h1>Day 10：HTML 与文字输出比较</h1>
+      <label>
+        Test input
+        <input id="test-input" value="hello">
+      </label>
+      <button id="render-button" type="button">Render</button>
+
+      <h2>innerHTML output</h2>
+      <div id="html-output"></div>
+
+      <h2>textContent output</h2>
+      <div id="text-output"></div>
+    </main>
+
+    <script>
+      const input = document.querySelector("#test-input");
+      const htmlOutput = document.querySelector("#html-output");
+      const textOutput = document.querySelector("#text-output");
+      const button = document.querySelector("#render-button");
+
+      button.addEventListener("click", () => {
+        htmlOutput.innerHTML = input.value;
+        textOutput.textContent = input.value;
+      });
+    </script>
+  </body>
+</html>

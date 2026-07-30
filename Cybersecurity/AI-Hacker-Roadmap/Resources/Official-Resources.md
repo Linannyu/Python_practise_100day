@@ -4,14 +4,15 @@
 
 ## Web Security
 
-- PortSwigger Web Security Academy
-- OWASP Web Security Testing Guide
-- OWASP Juice Shop
+- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
+- [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
 
 ## 工具
 
-- Burp Suite 官方文档
-- Python requests 官方文档
+- [Burp Suite 官方文档](https://portswigger.net/burp/documentation/desktop)
+- [Postman Echo 官方文档](https://learning.postman.com/docs/developer/echo-api)
+- [Python requests 官方文档](https://requests.readthedocs.io/en/latest/)
 
 ## 使用原则
 
