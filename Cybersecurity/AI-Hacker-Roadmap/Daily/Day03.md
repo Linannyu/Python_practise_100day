@@ -252,12 +252,12 @@ Postman Echo 通常把表单正文显示在：
 
 ## 成功标准
 
-- [ ] GET 返回 `200`
-- [ ] GET 的 `args.message` 是 `hello`
-- [ ] POST 返回 `200`
-- [ ] POST 的 `form.message` 是 `hello`
-- [ ] 能指出 POST 请求头与正文之间的空行
-- [ ] 能用一句话说明本实验中 GET 与 POST 的数据位置
+- [x] GET 返回 `200`
+- [x] GET 的 `args.message` 是 `hello`
+- [x] POST 返回 `200`
+- [x] POST 的 `form.message` 是 `hello`
+- [x] 能指出 POST 请求头与正文之间的空行
+- [x] 能用一句话说明本实验中 GET 与 POST 的数据位置
 
 ## 操作记录
 

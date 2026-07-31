@@ -17,3 +17,4 @@
 | Day 14 | Cybersecurity | 网络安全 | 计算机基本知识 | 7/26/2026 |
 | Day 15 | AI-Hacker-Roadmap/Day1 | 利用Chatgpt给我指定一个挖漏洞的30天符合我的学习方式 | 下载Burp | 7/27/2026 |
 | Day 16 | AI-Hacker-Roadmap | Day2 and Day3 | URL、参数、请求头与响应，get与post比较 | 7/29/2026 |
+| Day 17 | AI-Hacker-Roadmap | Day4 | Cookie 与 Session | 7/30/2026 |
