@@ -10,7 +10,7 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 - [x] Day 2：理解 URL、参数、请求头和响应
 - [x] Day 3：区分 GET 与 POST
 - [x] Day 4：理解 Cookie 与 Session
-- [ ] Day 5：在授权靶场中修改客户端参数
+- [x] Day 5：在授权靶场中修改客户端参数
 - [ ] Day 6：使用 Repeater 比较多个请求
 - [ ] Day 7：完成第一个 PortSwigger 基础实验
 
