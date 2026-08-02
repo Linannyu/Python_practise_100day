@@ -19,3 +19,4 @@
 | Day 16 | AI-Hacker-Roadmap | Day2 and Day3 | URL、参数、请求头与响应，get与post比较 | 7/29/2026 |
 | Day 17 | AI-Hacker-Roadmap | Day4 | Cookie 与 Session | 7/30/2026 |
 | Day 18 | AI-Hacker-Roadmap | Day5 | 本地隐藏字段实验 | 7/31/2026 |
+| Day 19 | AI-Hacker-Roadmap | Day6 | 本地隐藏字段实验 | 08/01/2026 |

@@ -155,9 +155,9 @@ A 与 C：headers.x-learning-day
 
 | 请求 | 唯一改动 | 状态码 | `args.value` | `x-learning-day` | 响应长度 |
 |---|---|---:|---|---|---:|
-| A | 无，基准 |  |  | 不存在 |  |
-| B | `alpha → beta` |  |  | 不存在 |  |
-| C | 增加请求头 |  |  | `6` |  |
+| A | 无，基准 | 待记录 | `alpha` | 不存在 | 待记录 |
+| B | `alpha → beta` | 待记录 | `beta` | 不存在 | 待记录 |
+| C | 增加请求头 | 待记录 | `alpha` | `6` | 待记录 |
 
 ## 常见错误与处理
 
@@ -181,34 +181,45 @@ A 与 C：headers.x-learning-day
 ## 操作记录
 
 ```text
-A 请求第一行：
-A 的 args.value：
+A 请求第一行：GET /get?value=alpha（协议版本未记录）
+A 的 args.value："args":{"value":"alpha"}
 
-B 唯一改动：
-B 的 args.value：
+B 唯一改动：value=beta
+B 的 args.value："args":{"value":"beta"}
 
-C 唯一改动：
-C 的 headers 回显：
+C 唯一改动：请求头添加了 X-Learning-Day: 6
+C 的 headers 回显："headers":{"x-learning-day":"6"}
 
-哪个比较证明参数变化：
-哪个比较证明请求头变化：
+哪个比较证明参数变化：比较 A 和 B。两者只改变 value，响应中的
+args.value 也从 alpha 变成 beta。
 
-为什么不能只看响应长度：
-我遇到的问题：
+哪个比较证明请求头变化：比较 A 和 C。两者的 value 都是 alpha，
+C 只增加 X-Learning-Day: 6，响应中也只出现对应的请求头回显。
+
+为什么不能只看响应长度：响应长度只表示正文有多少字节，不能说明具体
+哪个字段改变，也不能证明变化由哪个输入造成；动态字段也可能影响长度。
+
+我遇到的问题：没有
 ```
 
 ## 思考题
 
 ```text
 1. 为什么 C 必须从 A 而不是 B 复制？
+因为 A 是没有修改的基准。从 A 建立 C，C 就只比 A 多一个请求头。
+如果从 B 复制，C 会同时保留 value=beta 和新增请求头，一次改变两个变量。
+
 2. 如果一次修改参数和请求头，结论会有什么问题？
+如果响应发生变化，就无法判断变化是参数造成的、请求头造成的，还是两者共同造成的，因此不能得到清楚的因果结论。
+
 3. “响应不同”是否自动等于“存在漏洞”？
+不等于。响应不同只说明服务器对两个输入作出了不同回应，还要结合功能、预期行为和实际安全影响继续验证。本实验的 Echo 服务本来就会回显输入，所以这里的差异是预期结果，不是漏洞证据。
 ```
 
 ## 今日一句话总结
 
 ```text
-今天我学会了：
+今天我学会了：受控比较需要保留一个基准，每次只改变一个变量，再检查对应的目标字段。响应出现差异只是一条观察结果，不会自动证明存在漏洞。
 ```
 
 ## Git Commit
@@ -217,4 +228,3 @@ C 的 headers 回显：
 git add Cybersecurity/AI-Hacker-Roadmap
 git commit -m "Complete day 6: compare requests in Repeater"
 ```
-
