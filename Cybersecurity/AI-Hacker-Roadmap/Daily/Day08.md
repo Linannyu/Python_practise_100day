@@ -187,48 +187,68 @@ query = "SELECT name FROM products WHERE category = '" + category + "'"
 
 ## 成功标准
 
-- [ ] 成功运行三个输入
-- [ ] Gifts 返回 Gift Card
-- [ ] Clothing 返回 T-Shirt
-- [ ] Unknown 返回 no rows
-- [ ] 能解释 SELECT、FROM、WHERE
-- [ ] 能指出 SQL 模板与参数是分开的
-- [ ] 能解释字符串拼接的风险
+- [x] 成功运行三个输入
+- [x] Gifts 返回 Gift Card
+- [x] Clothing 返回 T-Shirt
+- [x] Unknown 返回 no rows
+- [x] 能解释 SELECT、FROM、WHERE
+- [x] 能指出 SQL 模板与参数是分开的
+- [x] 能解释字符串拼接的风险
 
 ## 操作记录
 
 ```text
 Gifts 的结果：
+SQL template: SELECT name FROM products WHERE category = ? AND released = ?
+Parameters: ('Gifts', 1)
+Results:
+- Gift Card
 
 Clothing 的结果：
+SQL template: SELECT name FROM products WHERE category = ? AND released = ?
+Parameters: ('Clothing', 1)
+Results:
+- T-Shirt
 
 Unknown 的结果：
+SQL template: SELECT name FROM products WHERE category = ? AND released = ?
+Parameters: ('Unknown', 1)
+Results:
+(no rows)
 
 SQL 模板：
+SELECT name FROM products WHERE category = ? AND released = ?
 
-第一个参数：
+第一个参数：category 变量中的用户输入。三次运行时分别是 Gifts、
+Clothing 和 Unknown。
 
-第二个参数：
+第二个参数：固定整数 1，表示只查询 released 等于 1 的已发布商品。
 
-为什么 Prototype Gift 没出现：
+为什么 Prototype Gift 没出现：它的 released 是 0，但查询的第二个参数是1。两个 WHERE 条件必须同时成立，所以这一行被排除。
 
-为什么参数化查询更安全：
+为什么参数化查询更安全：SQL 模板和用户输入分开交给数据库。数据库把参数当作数据处理，不会把它直接拼进 SQL 字符串并当成 SQL 结构解释。
 
-我遇到的问题：
+我遇到的问题：没有
 ```
 
 ## 思考题
 
 ```text
 1. `?` 在这个 SQL 中是什么？
+`?` 是参数占位符，不代表未知或 None。第一个 `?` 绑定 category，第二个 `?` 绑定整数 1。
+
 2. 用户输入有没有直接出现在 query 字符串中？
+没有。query 始终保存固定 SQL 模板，用户输入被放在 parameters 中，然后 query 和 parameters 分开传给 cursor.execute()。
+
 3. no rows 和程序报错有什么区别？
+no rows 表示程序和查询都正常执行，只是没有任何数据行同时满足筛选条件。
+程序报错表示代码、SQL 语法或运行过程失败，通常会显示错误信息并中断。
 ```
 
 ## 今日一句话总结
 
 ```text
-今天我学会了：
+今天我学会了：SELECT 决定读取哪些列，FROM 指定数据来自哪张表，WHERE筛选符合条件的行。参数化查询使用固定 SQL 模板和单独的参数，`?` 是参数占位符，不是 None。
 ```
 
 ## Git Commit
@@ -237,4 +257,3 @@ SQL 模板：
 git add Cybersecurity/AI-Hacker-Roadmap
 git commit -m "Complete day 8: learn SQL query basics"
 ```
-

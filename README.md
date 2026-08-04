@@ -20,4 +20,5 @@
 | Day 17 | AI-Hacker-Roadmap | Day4 | Cookie 与 Session | 7/30/2026 |
 | Day 18 | AI-Hacker-Roadmap | Day5 | 本地隐藏字段实验 | 7/31/2026 |
 | Day 19 | AI-Hacker-Roadmap | Day6 | 本地隐藏字段实验 | 08/01/2026 |
-| Day 20 | AI-Hacker-Roadmap | Day6 | 第一个 PortSwigger Lab | 08/02/2026 |
+| Day 20 | AI-Hacker-Roadmap | Day7 | 第一个 PortSwigger Lab | 08/02/2026 |
+| Day 21 | AI-Hacker-Roadmap | Day8 | SQL 与参数化查询 | 08/03/2026 |

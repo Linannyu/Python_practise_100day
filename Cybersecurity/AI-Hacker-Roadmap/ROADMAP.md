@@ -11,14 +11,14 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 - [x] Day 3：区分 GET 与 POST
 - [x] Day 4：理解 Cookie 与 Session
 - [x] Day 5：在授权靶场中修改客户端参数
-- [ ] Day 6：使用 Repeater 比较多个请求
-- [ ] Day 7：完成第一个 PortSwigger 基础实验
+- [x] Day 6：使用 Repeater 比较多个请求
+- [x] Day 7：完成第一个 PortSwigger 基础实验
 
 ## Week 2 — Common Web Vulnerabilities
 
 目标：认识常见漏洞，并在授权环境中完成基础实验。
 
-- [ ] Day 8：SQL 与 SQL Injection 基础
+- [x] Day 8：SQL 与 SQL Injection 基础
 - [ ] Day 9：完成基础 SQL Injection Lab
 - [ ] Day 10：XSS 基础
 - [ ] Day 11：完成基础 Reflected XSS Lab
