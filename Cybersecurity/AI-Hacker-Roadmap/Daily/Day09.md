@@ -155,9 +155,10 @@ Solved
 记录：
 
 ```text
-实验名称
-category 原始值
-使用的编码值
+实验名称：SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+
+category 原始值: category=Gifts
+使用的编码值: category=%27+OR+1%3D1--
 修改前商品结果
 修改后商品结果
 根本原因
@@ -194,43 +195,52 @@ category 原始值
 
 ## 成功标准
 
-- [ ] 打开正确实验实例
-- [ ] 找到带 category 的 GET 请求
-- [ ] 保存正常基准
-- [ ] 只修改 category
+- [x] 打开正确实验实例
+- [x] 找到带 category 的 GET 请求
+- [x] 保存正常基准
+- [x] 只修改 category
 - [ ] 修改后出现额外商品
-- [ ] Lab 显示 Solved
+- [x] Lab 显示 Solved
 - [ ] 能解释 `OR 1=1`
 - [ ] 能写出参数化查询修复方向
 
 ## 实验记录
 
 ```text
-Lab 名称：
+Lab 名称：SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 
-请求方法与路径：
+请求方法与路径：GET /filter?category=Food+%26+Drink
 
-category 原始值：
+category 原始值：Food+%26+Drink
 
-category 修改值：
+category 修改值：%27+OR+1%3D1--
 
-修改前结果：
+修改前结果：页面只显示所选分类（例如 Food & Drink）中已经发布的商品。
 
-修改后结果：
+修改后结果：页面显示了比之前更多的商品，包括原本不会显示的商品，因此实验成功完成（Solved）。
 
-为什么条件变成更宽：
+为什么条件变成更宽：因为 1=1 永远为真，而 OR 表示只要其中一个条件成立，整个条件就成立。因此 SQL 的筛选条件不再只限制某一个分类，而会匹配更多记录。-- 是 SQL 单行注释符，它会让数据库忽略后面原本由程序继续拼接的 SQL 内容。
 
-根本原因：
+根本原因：服务器直接把客户端提供的 category 参数拼接进 SQL 查询，而没有把用户输入当作普通数据处理，导致用户输入能够影响 SQL 的逻辑。
 
-修复方式：
+修复方式：使用参数化查询（Prepared Statements / Parameterized Queries）。
+参数化查询会先固定 SQL 结构，再把 category 作为数据参数传入，而不是拼接字符串，因此用户输入无法改变 SQL 的语法结构，从而有效防止 SQL 注入。
 
 我遇到的问题：
+1. 一开始不理解为什么需要 -- 注释。
+2. 不理解 %27、%3D 等 URL 编码代表什么。
+3. 不理解为什么 OR 1=1 会导致查询范围扩大。
+4. 后来理解到：
+    * %27 是英文单引号 '
+    * %3D 是等号 =
+    * -- 是 SQL 单行注释
+    * OR 1=1 利用了 SQL 的布尔逻辑，因为 1=1 永远为真。
 ```
 
 ## 今日一句话总结
 
 ```text
-今天我学会了：
+今天我学会了：SQL 注入产生的根本原因不是某一串特殊字符，而是服务器把用户输入直接拼接到 SQL 语句中，使用户能够影响 SQL 的逻辑。正确的防御方法是使用参数化查询，让 SQL 结构固定，把用户输入始终作为数据处理，而不是作为 SQL 代码的一部分。
 ```
 
 ## Git Commit
