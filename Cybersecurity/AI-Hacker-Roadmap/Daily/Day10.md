@@ -161,48 +161,55 @@ Control + C
 
 ## 成功标准
 
-- [ ] 本地页面正常打开
-- [ ] hello 在两处都显示
-- [ ] `<b>hello</b>` 在两处表现不同
-- [ ] 找到 innerHTML 代码行
-- [ ] 找到 textContent 代码行
-- [ ] 能解释输出上下文
-- [ ] 已停止本地服务器
+- [x] 本地页面正常打开
+- [x] hello 在两处都显示
+- [x] `<b>hello</b>` 在两处表现不同
+- [x] 找到 innerHTML 代码行
+- [x] 找到 textContent 代码行
+- [x] 能解释输出上下文
+- [x] 已停止本地服务器
 
 ## 操作记录
 
 ```text
-普通文字输入：
+普通文字输入：hello
 
-innerHTML 普通文字结果：
+innerHTML 普通文字结果：hello
 
-textContent 普通文字结果：
+textContent 普通文字结果：hello
 
-HTML 输入：
+HTML 输入：<b>hello</b>
 
-innerHTML HTML 结果：
+innerHTML HTML 结果：浏览器把 `<b>` 解析为 HTML 标签，显示粗体 hello
 
-textContent HTML 结果：
+textContent HTML 结果：浏览器把输入当作普通文字，原样显示 `<b>hello</b>`
 
 造成差别的两行代码：
+htmlOutput.innerHTML = input.value;
+textOutput.textContent = input.value;
 
-我对输出编码的理解：
+我对输出编码的理解：同一个输入是否安全，取决于它被放入的输出上下文。innerHTML 会让浏览器把字符串解析为 HTML；textContent 则把它当作普通文字。处理不可信文字时，应优先使用 textContent；如果必须输出到 HTML 等其他上下文，则需要使用与该上下文匹配的安全处理方法。
 
-我遇到的问题：
+我遇到的问题：没有
 ```
 
 ## 思考题
 
 ```text
 1. `<b>` 为什么在 innerHTML 区域没有原样显示？
+答：innerHTML 会把输入交给 HTML 解析器。浏览器因此把 `<b>` 和 `</b>` 识别为标签，并把中间的 hello 渲染成粗体，而不是显示标签本身。
+
 2. textContent 为什么会显示尖括号？
+答：textContent 创建的是文字内容，不会调用 HTML 解析器来解释输入。因此 `<` 和 `>` 只是普通字符，会和其他文字一起显示。
+
 3. 输入验证和输出编码分别解决什么问题？
+答：输入验证用来检查数据是否符合业务规则，例如类型、长度和允许范围。输出编码则根据输出上下文处理特殊字符，防止数据被当成 HTML 或代码解释。输入验证不能代替输出编码。
 ```
 
 ## 今日一句话总结
 
 ```text
-今天我学会了：
+今天我学会了：同一个输入通过 innerHTML 和 textContent 输出时会被浏览器以不同方式解释，处理不可信文字时应优先使用 textContent。
 ```
 
 ## Git Commit

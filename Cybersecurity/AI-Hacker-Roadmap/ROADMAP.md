@@ -20,7 +20,7 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 
 - [x] Day 8：SQL 与 SQL Injection 基础
 - [x] Day 9：完成基础 SQL Injection Lab
-- [ ] Day 10：XSS 基础
+- [x] Day 10：XSS 基础
 - [ ] Day 11：完成基础 Reflected XSS Lab
 - [ ] Day 12：认证与登录逻辑
 - [ ] Day 13：访问控制与 IDOR
