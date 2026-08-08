@@ -114,12 +114,12 @@ Cookie 名称
 
 | 项目 | 失败登录 | 成功登录 |
 |---|---|---|
-| 方法与路径 |  |  |
-| 状态码 |  |  |
-| 错误信息 |  |  |
-| Location |  |  |
-| Set-Cookie 名称 |  |  |
-| 最终页面 |  |  |
+| 方法与路径 | POST /login | POST /login |
+| 状态码 | 200 | 302 |
+| 错误信息 | `Invalid username or password.` | 无此错误提示 |
+| Location | 不存在 | `/my-account?id=wiener` |
+| Set-Cookie 名称 | 未出现 | `session`（值不记录） |
+| 最终页面 | 仍是 Login 页面 | 浏览器被引导到 My account 页面 |
 
 只写 Cookie 名称，例如 `session`；值写 `[redacted]`。
 
@@ -149,46 +149,55 @@ Cookie 名称
 
 ## 成功标准
 
-- [ ] 只做一次失败登录
-- [ ] 完成一次成功登录
-- [ ] 找到两条登录请求
-- [ ] 比较状态码与 Location
-- [ ] 只记录 Cookie 名称
-- [ ] 能区分 Authentication、Session、Authorization
+- [x] 只做一次失败登录
+- [x] 完成一次成功登录
+- [x] 找到两条登录请求
+- [x] 比较状态码与 Location
+- [x] 只记录 Cookie 名称
+- [x] 能区分 Authentication、Session、Authorization
 
 ## 操作记录
 
 ```text
-失败登录方法与路径：
-失败状态码：
-失败错误信息：
-失败 Location：
+失败登录方法与路径：POST /login
+失败状态码：HTTP/2 200 OK
+失败错误信息：Invalid username or password.
+失败 Location：没有 Location 响应头，页面仍显示 Login 表单。
 
-成功登录方法与路径：
-成功状态码：
-成功 Location：
-成功 Set-Cookie 名称：
-最终页面：
+成功登录方法与路径：POST /login
+成功状态码：HTTP/2 302 Found
+成功 Location：/my-account?id=wiener
+成功 Set-Cookie 名称：session（具体值已省略）
+最终页面：根据 Location，浏览器被引导到 wiener 的 My account 页面。
 
-Authentication 是：
-Session 是：
-Authorization 是：
+Authentication 是：服务器检查凭据并确认用户是谁。本实验中，成功登录说明服务器接受了 wiener 的正确实验凭据。
 
-我遇到的问题：
+Session 是：服务器用来记住一段访问状态的机制。登录成功后，浏览器可以在后续请求中携带名为 session 的 Cookie，让服务器识别同一段登录状态。
+
+Authorization 是：服务器在知道用户身份后，继续判断该用户是否有权访问某个页面或执行某个操作。登录成功不代表拥有所有权限。
+
+我遇到的问题：成功响应正文是空的，所以一开始不知道怎样判断是否登录成功。后来通过 302、Location 和 Set-Cookie 三项证据确认了登录结果。
 ```
 
 ## 思考题
 
 ```text
 1. 登录成功是否代表可以访问所有功能？
+不代表。登录成功只完成身份认证。访问具体页面或执行具体操作时，服务器仍然必须进行 Authorization 权限检查。
+
 2. Cookie 和服务器 Session 为什么不是同一个东西？
+Cookie 是浏览器保存并随请求发送的数据；Session 通常是服务器管理的状态。
+Cookie 可以携带 Session 标识，但它本身不等于服务器保存的全部 Session。
+
 3. 302 和 200 在你的两个响应中分别对应什么行为？
+失败登录的 200 表示服务器直接返回登录页面，并在页面中显示错误提示。
+成功登录的 302 表示服务器要求浏览器跳转到 Location 指定的账号页面。
 ```
 
 ## 今日一句话总结
 
 ```text
-今天我学会了：
+今天我学会了：失败登录可以通过 200 和页面错误提示识别；成功登录可以通过 302、Location 和 Set-Cookie 识别。Authentication、Session Authorization 相互关联，但分别负责确认身份、保持状态和检查权限。
 ```
 
 ## Git Commit
@@ -197,4 +206,3 @@ Authorization 是：
 git add Cybersecurity/AI-Hacker-Roadmap
 git commit -m "Complete day 12: inspect authentication flow"
 ```
-

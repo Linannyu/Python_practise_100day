@@ -25,3 +25,4 @@
 | Day 22 | AI-Hacker-Roadmap | Day9 | SQL Injection 入门 Lab | 08/04/2026 |
 | Day 23 | AI-Hacker-Roadmap | Day10 | XSS 与输出编码 | 08/05/2026 |
 | Day 24 | AI-Hacker-Roadmap | Day11 | 完成基础 Reflected XSS Lab | 08/06/2026 |
+| Day 25 | AI-Hacker-Roadmap | Day12 | 认证与登录逻辑 | 08/07/2026 |
