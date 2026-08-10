@@ -24,7 +24,7 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 - [x] Day 11：完成基础 Reflected XSS Lab
 - [x] Day 12：认证与登录逻辑
 - [x] Day 13：访问控制与 IDOR
-- [ ] Day 14：Week 2 Boss Lab
+- [x] Day 14：Week 2 Boss Lab
 
 ## Week 3 — Python Security Builder
 

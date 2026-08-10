@@ -27,3 +27,4 @@
 | Day 24 | AI-Hacker-Roadmap | Day11 | 完成基础 Reflected XSS Lab | 08/06/2026 |
 | Day 25 | AI-Hacker-Roadmap | Day12 | 认证与登录逻辑 | 08/07/2026 |
 | Day 26 | AI-Hacker-Roadmap | Day13 | 访问控制与 IDOR | 08/08/2026 |
+| Day 27 | AI-Hacker-Roadmap | Day14 | Week 2 Boss Lab | 08/09/2026 |
