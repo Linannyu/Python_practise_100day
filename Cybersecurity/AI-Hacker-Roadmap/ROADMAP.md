@@ -30,7 +30,7 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 
 目标：用 Python 编写小型安全辅助工具。
 
-- [ ] Day 15：使用 requests 发送 HTTP 请求
+- [x] Day 15：使用 requests 发送 HTTP 请求
 - [ ] Day 16：读取状态码和响应头
 - [ ] Day 17：解析 URL 参数
 - [ ] Day 18：批量请求本地授权靶场页面

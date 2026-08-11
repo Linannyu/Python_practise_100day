@@ -133,21 +133,21 @@ Response：变量 response 保存的服务器响应
 
 ## 成功标准
 
-- [ ] `requests` 成功导入
-- [ ] 请求设置了超时
-- [ ] 输出方法、URL 和状态码
-- [ ] 正常情况下状态码为 `200`
-- [ ] 能指出 URL 中的查询参数
+- [x] `requests` 成功导入
+- [x] 请求设置了超时
+- [x] 输出方法、URL 和状态码
+- [x] 正常情况下状态码为 `200`
+- [x] 能指出 URL 中的查询参数
 
 ## 操作记录
 
 ```text
-Python 版本：
-requests 版本：
-Method：
-URL：
-Status：
-我遇到的问题：
+Python 版本：3.14.3
+requests 版本：2.34.2
+Method：GET
+URL：https://postman-echo.com/get?day=15
+Status：200
+我遇到的问题：No problem
 ```
 
 ## 思考题
@@ -155,6 +155,16 @@ Status：
 为什么网络请求应该设置 `timeout`，而不是无限等待？
 
 提示：想一想服务器没有回应时，程序是否还能继续执行。
+
+```text
+因为服务器、网络或域名解析可能暂时没有回应。如果不设置 timeout，程序可能一直停在等待请求的位置，后面的代码无法继续运行。设置 timeout=10后，请求等待超过限制就会报告异常，让程序有机会停止、提示错误或继续处理其他任务，而不是无限等待。
+```
+
+## 今日一句话总结
+
+```text
+今天我学会了：requests.get() 可以发送 GET 请求，response 保存服务器返回的响应；网络请求应设置 timeout，并通过 response.status_code 检查实际状态码。这个 URL 的查询参数是 ? 后面的 day=15。
+```
 
 ## Git Commit
 
