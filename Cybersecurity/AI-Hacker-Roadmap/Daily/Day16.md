@@ -120,22 +120,32 @@ url = "https://postman-echo.com/get?day=16"
 
 ## 成功标准
 
-- [ ] 输出 Content-Type
-- [ ] 输出 Server 或 `(missing)`
-- [ ] 输出正文大小
-- [ ] 分别观察并记录 `200` 和 `404`
-- [ ] 最终把 URL 恢复为 Day 16 地址
+- [x] 输出 Content-Type
+- [x] 输出 Server 或 `(missing)`
+- [x] 输出正文大小
+- [x] 分别观察并记录 `200` 和 `404`
+- [x] 最终把 URL 恢复为 Day 16 地址
 
 ## 操作记录
 
 | URL | 状态码 | Content-Type | Body bytes |
 |---|---:|---|---:|
-| `/get?day=16` |  |  |  |
-| `/test` |  |  |  |
+| `/get?day=16` | 200 | application/json; charset=utf-8 | 213 |
+| `/test` | 404 | application/json; charset=utf-8 | 0 |
 
 ## 思考题
 
 `404` 表示请求完全没有到达服务器吗？根据你实际收到的 HTTP 响应回答，不要只写定义。
+
+```text
+不表示。我的脚本收到了状态码 404、Content-Type 响应头和一份 0 字节的响应正文，说明请求已经到达能够返回 HTTP 响应的一方。这里的 404 表示服务器没有找到 /test 对应的资源。它与域名解析失败、连接失败或 timeout不同；那些情况通常不会得到正常的 HTTP 状态码。
+```
+
+## 今日一句话总结
+
+```text
+今天我学会了：状态码说明服务器处理请求的结果，Content-Type 描述响应正文的数据类型，Server 可能说明响应由什么服务器软件或服务处理，Body bytes 表示响应正文的字节数。404 是有效响应，不等于完全没有连接。
+```
 
 ## Git Commit
 

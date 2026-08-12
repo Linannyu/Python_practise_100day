@@ -29,3 +29,4 @@
 | Day 26 | AI-Hacker-Roadmap | Day13 | 访问控制与 IDOR | 08/08/2026 |
 | Day 27 | AI-Hacker-Roadmap | Day14 | Week 2 Boss Lab | 08/09/2026 |
 | Day 28 | AI-Hacker-Roadmap | Day15 | 使用 requests 发送 HTTP 请求 | 08/10/2026 |
+| Day 29 | AI-Hacker-Roadmap | Day16 | 读取状态码和响应头 | 08/11/2026 |
