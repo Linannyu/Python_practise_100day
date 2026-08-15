@@ -20,17 +20,30 @@ print("Server:", server)
 print("Body bytes:", body_bytes)
 '''
 
-# Day 18
+# Day 19
+import hashlib
 from urllib.parse import urlparse
+
 import requests
+
 
 ALLOWED_HOSTS = {"127.0.0.1", "localhost"}
 
-urls = [
-    "http://127.0.0.1:8000/",
-    "http://127.0.0.1:8000/about.html",
-    "http://127.0.0.1:8000/missing.html",
-]
+home_url = "http://127.0.0.1:8000/"
+about_url = "http://127.0.0.1:8000/about.html"
+urls = [home_url, about_url]
+
+
+def summarize(response) -> dict:
+    return {
+        "status": response.status_code,
+        "content_type": response.headers.get("Content-Type", "(missing)"),
+        "bytes": len(response.content),
+        "sha256": hashlib.sha256(response.content).hexdigest()[:12],
+    }
+
+
+summaries = {}
 
 for url in urls:
     host = urlparse(url).hostname
@@ -39,6 +52,12 @@ for url in urls:
         continue
 
     response = requests.get(url, timeout=10)
-    content_type = response.headers.get("Content-Type", "(missing)")
-    body_bytes = len(response.content)
-    print(url, "|", response.status_code, "|", content_type, "|", body_bytes)
+    summaries[url] = summarize(response)
+
+home_summary = summaries[home_url]
+about_summary = summaries[about_url]
+
+print("field | home | about | comparison")
+for key in home_summary:
+    result = "same" if home_summary[key] == about_summary[key] else "different"
+    print(key, "|", home_summary[key], "|", about_summary[key], "|", result)
