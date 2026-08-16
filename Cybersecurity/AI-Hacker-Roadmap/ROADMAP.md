@@ -35,7 +35,7 @@ Day 1–Day 30 的任务文件已经生成，但路线仍会根据每天的完�
 - [x] Day 17：解析 URL 参数
 - [x] Day 18：批量请求本地授权靶场页面
 - [x] Day 19：编写响应差异比较器
-- [ ] Day 20：保存测试结果
+- [x] Day 20：保存测试结果
 - [ ] Day 21：完成第一个可展示的小工具
 
 ## Week 4 — AI-Assisted Security Workflow

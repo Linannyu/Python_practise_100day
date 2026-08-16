@@ -20,8 +20,11 @@ print("Server:", server)
 print("Body bytes:", body_bytes)
 '''
 
-# Day 19
+# Day 20
 import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
@@ -29,21 +32,12 @@ import requests
 
 ALLOWED_HOSTS = {"127.0.0.1", "localhost"}
 
-home_url = "http://127.0.0.1:8000/"
-about_url = "http://127.0.0.1:8000/about.html"
-urls = [home_url, about_url]
+urls = [
+    "http://127.0.0.1:8000/",
+    "http://127.0.0.1:8000/about.html",
+]
 
-
-def summarize(response) -> dict:
-    return {
-        "status": response.status_code,
-        "content_type": response.headers.get("Content-Type", "(missing)"),
-        "bytes": len(response.content),
-        "sha256": hashlib.sha256(response.content).hexdigest()[:12],
-    }
-
-
-summaries = {}
+results = []
 
 for url in urls:
     host = urlparse(url).hostname
@@ -52,12 +46,25 @@ for url in urls:
         continue
 
     response = requests.get(url, timeout=10)
-    summaries[url] = summarize(response)
+    item = {
+        "url": url,
+        "status": response.status_code,
+        "content_type": response.headers.get("Content-Type", "(missing)"),
+        "bytes": len(response.content),
+        "sha256": hashlib.sha256(response.content).hexdigest()[:12],
+    }
+    results.append(item)
 
-home_summary = summaries[home_url]
-about_summary = summaries[about_url]
+report = {
+    "generated_at": datetime.now(timezone.utc).isoformat(),
+    "scope": "localhost-only",
+    "results": results,
+}
 
-print("field | home | about | comparison")
-for key in home_summary:
-    result = "same" if home_summary[key] == about_summary[key] else "different"
-    print(key, "|", home_summary[key], "|", about_summary[key], "|", result)
+output_path = Path("Scripts/output/day20-results.json")
+output_path.parent.mkdir(parents=True, exist_ok=True)
+
+with output_path.open("w", encoding="utf-8") as file:
+    json.dump(report, file, ensure_ascii=False, indent=2)
+
+print("Saved:", output_path)

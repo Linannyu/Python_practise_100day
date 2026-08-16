@@ -33,3 +33,4 @@
 | Day 30 | AI-Hacker-Roadmap | Day17 | 解析 URL 参数 | 08/12/2026 |
 | Day 31 | AI-Hacker-Roadmap | Day18 | 批量请求本地授权靶场页面 | 08/13/2026 |
 | Day 32 | AI-Hacker-Roadmap | Day19 | 编写响应差异比较器 | 08/14/2026 |
+| Day 33 | AI-Hacker-Roadmap | Day20 | 保存测试结果 | 08/15/2026 |
