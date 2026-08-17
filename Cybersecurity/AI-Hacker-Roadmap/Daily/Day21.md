@@ -242,23 +242,28 @@ requests
 
 ## 必须功能
 
-- [ ] 接受一个或多个 URL
-- [ ] 使用 allowlist 阻止其他主机
-- [ ] 每个请求设置 `timeout`
-- [ ] 输出状态码、Content-Type、字节数和 SHA-256 摘要
-- [ ] 可选保存 JSON
-- [ ] 单个请求失败时给出友好错误，不让整个程序崩溃
+- [x] 接受一个或多个 URL
+- [x] 使用 allowlist 阻止其他主机
+- [x] 每个请求设置 `timeout`
+- [x] 输出状态码、Content-Type、字节数和 SHA-256 摘要
+- [x] 可选保存 JSON
+- [x] 单个请求失败时给出友好错误，不让整个程序崩溃
 
 ## 自测记录
 
 ```text
---help 能显示说明：
-允许 localhost：
-阻止 example.com：
-正常处理 200：
-正常处理 404：
-服务器关闭时显示友好错误：
-JSON 可以解析：
+--help 能显示说明：是；显示用途、urls 参数和 --output 参数，且没有发送请求。
+
+允许 localhost：是；http://127.0.0.1:8000/ 返回 200、text/html、273 bytes 和摘要。
+
+阻止 example.com：是；只显示 Blocked by allowlist，没有状态码。
+正常处理 200：是；首页返回 200。
+
+正常处理 404：是；/missing.html 返回 404，工具继续正常输出摘要。
+
+服务器关闭时显示友好错误：是；显示 Request failed: Connection refused，没有 Python traceback。
+
+JSON 可以解析：是；Scripts/output/report.json 通过 python3 -m json.tool。
 ```
 
 ## 展示说明
@@ -266,11 +271,15 @@ JSON 可以解析：
 用 3–5 句话说明：
 
 ```text
-我解决了什么问题：
-为什么设置 allowlist：
-工具如何比较响应：
-我学到了什么：
-下一步可以改进什么：
+我解决了什么问题：我把前几天分散的本地页面检查代码整理成一个可重复运行的 Local HTTP Inspector。
+
+为什么设置 allowlist：程序会在发送请求前检查主机名，只有 localhost、127.0.0.1 和课程允许的 postman-echo.com 能通过，避免误请求其他网站。
+
+工具如何比较响应：它输出状态码、Content-Type、正文大小和 SHA-256 摘要前 12 个字符；这些字段能提示内容是否变化，但不能单独证明存在漏洞。
+
+我学到了什么：我学会了用 argparse 接收命令行参数、用try/except 处理单次网络失败，以及用 JSON 保存不含正文和凭据的摘要结果。
+
+下一步可以改进什么：我可以让工具把连接失败、超时和 allowlist 阻止显示得更简短、更容易区分。
 ```
 
 ## Git Commit
