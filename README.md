@@ -39,5 +39,5 @@
 | Day 32 | AI-Hacker-Roadmap | Day19 | 编写响应差异比较器 | 08/14/2026 |
 | Day 33 | AI-Hacker-Roadmap | Day20 | 保存测试结果 | 08/15/2026 |
 | Day 34 | AI-Hacker-Roadmap | Day21 | 完成第一个可展示的小工具 | 08/16/2026 |
-| Day 35 | AI-Hacker-Roadmap | Day22 | 让 AI 解释 HTTP 请求 | 08/17/2026 |
+| Day 35 | AI-Hacker-Roadmap | Day22 | 让 AI 解释 HTTP 请求 | 08/18/2026 |
 | Day 36 | AI-Hacker-Roadmap | Day23 | 让 AI 阅读简单 Web 代码 | 08/19/2026 |
