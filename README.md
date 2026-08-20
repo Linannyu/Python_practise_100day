@@ -1,5 +1,9 @@
 # Python_practise_100day
 
+## 更新规则
+
+每完成一天学习内容，都要在这个最外层 README 的表格末尾新增一行：写明 Day 编号、项目、项目说明、学习内容和完成日期。AI-Hacker-Roadmap 的课程 Day 也要同步记录为对应的总学习 Day。
+
 | Day | 项目 | 项目说明 | 学习内容 | 日期 |
 |---|---|---|---|---|
 | Day 1 | Novel_get | 从网站上搜索并下载小说 | requests、XPath | 7/12/2026 |
@@ -36,3 +40,4 @@
 | Day 33 | AI-Hacker-Roadmap | Day20 | 保存测试结果 | 08/15/2026 |
 | Day 34 | AI-Hacker-Roadmap | Day21 | 完成第一个可展示的小工具 | 08/16/2026 |
 | Day 35 | AI-Hacker-Roadmap | Day22 | 让 AI 解释 HTTP 请求 | 08/17/2026 |
+| Day 36 | AI-Hacker-Roadmap | Day23 | 让 AI 阅读简单 Web 代码 | 08/19/2026 |
