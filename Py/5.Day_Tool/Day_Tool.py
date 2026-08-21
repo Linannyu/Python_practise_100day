@@ -70,6 +70,7 @@ elif user == '5':
     driver.find_element(By.CLASS_NAME, "dropdown-item").click()
     driver.find_element(By.ID, "sp_account_number").send_keys(nation_account)
     driver.find_element(By.ID, "ui_field_grid").send_keys('Lin')
+    time.sleep(1)
     driver.find_element(By.CSS_SELECTOR, "button.btn-primary.login-btn.btn.btn-blue.primary-background-color.primary-border-color").click()
     time.sleep(2)
     driver.find_element(By.ID, "sp_cust_first_name").send_keys(fafi_name)
@@ -78,10 +79,7 @@ elif user == '5':
     driver.find_element(By.CSS_SELECTOR, "button.btn.btn-primary.primary-background-color.primary-border-color").click()
     time.sleep(2)
 
-    bank_number = input('Plese enter your bank number: ')
-    bank_CVV = input('Plese enter your bank Security Code: ')
-    bank_Good_Thru_Date = input('Plese enter your bank Good Thru Date: ')
-    zip_code = input('Plese enter your zip code: ')
+
     
     wait = WebDriverWait(driver, 10)
     driver.find_element(By.ID, "sp_card_card_number").send_keys(bank_number)
