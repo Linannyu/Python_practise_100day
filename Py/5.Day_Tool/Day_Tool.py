@@ -79,7 +79,10 @@ elif user == '5':
     driver.find_element(By.CSS_SELECTOR, "button.btn.btn-primary.primary-background-color.primary-border-color").click()
     time.sleep(2)
 
-
+    bank_number = input('Plese enter your bank number: ')
+    bank_CVV = input('Plese enter your bank Security Code: ')
+    bank_Good_Thru_Date = input('Plese enter your bank Good Thru Date: ')
+    zip_code = input('Plese enter your zip code: ')
     
     wait = WebDriverWait(driver, 10)
     driver.find_element(By.ID, "sp_card_card_number").send_keys(bank_number)
