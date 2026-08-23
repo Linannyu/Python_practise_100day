@@ -3,17 +3,17 @@
 This file does not connect to a database, web server, or network.
 """
 
-
+# SQL Injection
 def build_product_query(category: str) -> str:
     """Return a query string without executing it."""
     return "SELECT name FROM products WHERE category = '" + category + "'"
 
-
+#  XSS（Cross-Site Scripting，跨站脚本攻击）
 def render_search(term: str) -> str:
     """Return a small HTML fragment."""
     return f"<p>You searched for: {term}</p>"
 
-
+# Insecure Direct Object Reference (IDOR)
 def get_profile(
     requested_user: str,
     current_user: str,

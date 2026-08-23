@@ -49,8 +49,18 @@ Labs/LocalHTTP/
 
 ```text
 H1：build_product_query(category)
+基准输入：category = "laptop"
+单一改动：category
+
 H2：render_search(term)
+基准输入：term = "laptop"
+单一改动：term
+
 H3：get_profile(requested_user, current_user, profiles)
+基准输入：
+单一改动：
+
+
 ```
 
 先只填写基准输入和单一改动，不问 AI。
