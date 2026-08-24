@@ -50,15 +50,15 @@ Labs/LocalHTTP/
 ```text
 H1：build_product_query(category)
 基准输入：category = "laptop"
-单一改动：category
+单一改动：只把 category 从 "laptop" 改为 "book"
 
 H2：render_search(term)
 基准输入：term = "laptop"
-单一改动：term
+单一改动：只把 term 从 "laptop" 改为 "A & B"
 
 H3：get_profile(requested_user, current_user, profiles)
-基准输入：
-单一改动：
+基准输入：requested_user = "alice"，current_user = "alice"，profiles = SAMPLE_PROFILES
+单一改动：只把 requested_user 从 "alice" 改为 "bob"；current_user 和 profiles 保持不变
 
 
 ```
@@ -89,9 +89,53 @@ H3：get_profile(requested_user, current_user, profiles)
 
 | 编号 | 基准 | 单一改动 | 代码证据 | 预期观察 | 支持结果 | 否定/限制结果 |
 |---|---|---|---|---|---|---|
-| H1 |  |  |  |  |  |  |
-| H2 |  |  |  |  |  |  |
-| H3 |  |  |  |  |  |  |
+| H1 | `category = "laptop"` | 只改为 `"book"` | `"..." + category + "..."` 直接拼接 category。 | 返回的 SQL 字符串中类别文字从 `laptop` 变为 `book`。 | 返回 `SELECT name FROM products WHERE category = 'book'`，且其他固定文字不变。 | 返回值没有 `book`，或固定 SQL 结构也意外改变；需要重新检查函数或测试方式。 |
+| H2 | `term = "laptop"` | 只改为 `"A & B"` | f-string 的 `{term}` 直接放进 HTML 字符串。 | 返回字符串中 `A & B` 是否原样出现，而不是变成 `A &amp; B`。 | 返回 `<p>You searched for: A & B</p>`，支持“此函数内部没有 HTML 编码”。 | 返回包含 `A &amp; B` 或其他编码结果；说明这个假设不符合实际输出，或存在未显示的外层处理。 |
+| H3 | `requested_user = "alice"`、`current_user = "alice"`、`profiles = SAMPLE_PROFILES` | 只把 requested_user 改为 `"bob"`。 | `return profiles[requested_user]`；`current_user` 只被 `_ = current_user` 接收。 | 保持 current_user 为 alice 时，返回的资料是否跟随 requested_user 变为 bob。 | 返回 bob 的本地字典资料，支持“函数本身未使用 current_user 限制资料选择”。 | 返回 alice 的资料、拒绝访问或抛出 KeyError；需要重新检查输入或实际执行的代码。 |
+
+### 三个完整假设
+
+**H1 — SQL 字符串构造**
+
+```text
+基准输入：category = "laptop"。
+输入点：build_product_query 的 category 参数。
+代码证据：return 行使用 + category + 拼接字符串。
+最小改动：只把 category 改为 "book"。
+本地验证方法：只调用本地 build_product_query 并查看返回的 Python 字符串；不连接数据库。
+预期观察：类别文字会从 laptop 改为 book。
+支持结果：返回字符串为 SELECT name FROM products WHERE category = 'book'。
+否定或限制结果：如果没有出现 book，或固定 SQL 文字也改变，假设需要修正。
+安全边界：只读取本地函数返回值，不执行 SQL，不连接网络或数据库。
+```
+
+**H2 — HTML 字符串构造**
+
+```text
+基准输入：term = "laptop"。
+输入点：render_search 的 term 参数。
+代码证据：return 行使用 f"<p>You searched for: {term}</p>"。
+最小改动：只把 term 改为普通文字 "A & B"。
+本地验证方法：只调用本地 render_search 并查看返回的 Python 字符串；不放入浏览器。
+预期观察：& 是否保持为 &，而不是 HTML 编码后的 &amp;。
+支持结果：返回 <p>You searched for: A & B</p>，支持“此函数内部没有 HTML 编码”的判断。
+否定或限制结果：若返回 A &amp; B 或其他编码形式，说明假设不符合实际输出，或存在未显示的处理。
+安全边界：只使用本地普通文字，不启动网页、不在浏览器渲染。
+```
+
+**H3 — 本地字典资料选择**
+
+```text
+基准输入：requested_user = "alice"、current_user = "alice"、profiles = SAMPLE_PROFILES。
+输入点：get_profile 的 requested_user 参数。
+代码证据：return profiles[requested_user]；current_user 只被赋值给 _，没有参与判断。
+最小改动：只把 requested_user 改为 "bob"，其他两个参数保持不变。
+本地验证方法：只调用本地 get_profile 并查看返回的 SAMPLE_PROFILES 字典。
+预期观察：返回资料是否从 alice 对应的字典改为 bob 对应的字典。
+支持结果：current_user 仍为 alice 时，函数返回 bob 的本地字典，支持“函数本身没有用 current_user 限制选择”的判断。
+否定或限制结果：返回 alice、拒绝访问或抛出 KeyError 时，需要检查输入和实际执行代码。
+安全边界：只使用文件中的 alice、bob 和 SAMPLE_PROFILES；不使用真实账号、不连接网络。
+```
 
 适合今天的“观察”是函数返回的字符串或字典。不要连接数据库，不要启动真实网站。
 
@@ -133,25 +177,31 @@ H3：get_profile(requested_user, current_user, profiles)
 
 ## 成功标准
 
-- [ ] 完成三个假设
-- [ ] 每个假设有具体代码证据
-- [ ] 每次测试只改一个变量
-- [ ] 每个结果都能直接观察
-- [ ] 每个假设都能被否定或限制
+- [x] 完成三个假设
+- [x] 每个假设有具体代码证据
+- [x] 每次测试只改一个变量
+- [x] 每个结果都能直接观察
+- [x] 每个假设都能被否定或限制
 
 ## 操作记录
 
 ```text
-最容易写的假设：
-最难写的假设：
-AI 修改了我的哪一部分：
-我拒绝了 AI 的哪条建议：
-三个测试是否都只在本地：
+最容易写的假设：H1，因为 category 只会进入一个容易观察的返回字符串位置。
+最难写的假设：H2，因为要区分“函数返回原始 HTML 字符串”和“浏览器如何解释 HTML”；今天只能观察前者。
+AI 修改了我的哪一部分：把“可能有问题”改成了固定基准、一次最小改动、可直接观察的结果和否定结果。
+我拒绝了 AI 的哪条建议：任何连接数据库、启动网站、使用真实账号或扩展到课程范围外目标的建议都不采用。
+三个测试是否都只在本地：是；三个设计都只调用 profile_app.py 中的函数和 SAMPLE_PROFILES，不执行网络或数据库操作。
 ```
 
 ## 思考题
 
 为什么一个无法被否定的说法，不适合作为测试假设？
+
+**回答：** 因为无法被否定的说法，不管看到什么结果都可以继续说“自己是对的”，所以测试不能帮助我们学习或修正判断。例如“这个函数可能不安全”没有指定输入、输出或相反结果；它不能被清楚检查。可测试假设必须提前写出：如果看到了什么具体输出，就支持它；如果没有看到，或看到相反输出，就否定或限制它。
+
+## 今日一句话总结
+
+今天我把三段本地代码的风险线索改写成单变量测试假设：每项都有基准、代码证据、可观察输出、支持结果和否定结果，但没有把假设当成已经确认的漏洞。
 
 ## Git Commit
 
