@@ -42,3 +42,4 @@
 | Day 35 | AI-Hacker-Roadmap | Day22 | 让 AI 解释 HTTP 请求 | 08/18/2026 |
 | Day 36 | AI-Hacker-Roadmap | Day23 | 让 AI 阅读简单 Web 代码 | 08/19/2026 |
 | Day 37 | AI-Hacker-Roadmap | Day24 | 让 AI 提出可验证假设 | 08/23/2026 |
+| Day 38 | 暂定 | 暂定 | 暂定 | 暂定 |
