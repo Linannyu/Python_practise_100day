@@ -1,0 +1,11 @@
+Baseline status: not recorded in the original notes; no HTTP status is inferred here.
+Baseline observable result: no administrator credentials were used, and the management function was not visible in normal navigation.
+
+Changed status: 200
+Changed observable result: the management page displayed the lab user list and a Delete operation. After completing the lab objective, the page displayed "User deleted successfully!" and the lab status displayed "Solved".
+
+Single changed element: the request target changed from the public hint path /robots.txt to the hinted management path /administrator-panel. The precondition of not using administrator credentials remained the same.
+
+What this proves: in this completed official lab, the hinted management path was reachable without administrator credentials and exposed the management operation described above.
+
+What this does not prove: it does not show server source code, prove behavior on any other system, retain a complete baseline HTTP response, or establish the impact of any real website.

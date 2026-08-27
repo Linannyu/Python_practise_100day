@@ -1,0 +1,24 @@
+Evidence scope: completed PortSwigger Web Security Academy lab only.
+
+Baseline context
+- No administrator credentials were used.
+- The management function was not visible in normal navigation.
+
+Public hint request (redacted summary)
+Method: GET
+Path: /robots.txt
+Host: [lab-instance redacted]
+
+Relevant observed response line
+Disallow: /administrator-panel
+
+Single changed request target (redacted summary)
+Method: GET
+Path: /administrator-panel
+Host: [lab-instance redacted]
+
+Omitted on purpose
+- Cookie and Session values
+- Authorization values
+- Full request and response headers
+- Temporary lab-instance domain and identifier
