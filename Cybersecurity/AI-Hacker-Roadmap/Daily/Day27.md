@@ -32,13 +32,13 @@ Reports/Day27-first-report.md
 
 ## 报告自检
 
-- [ ] 标题准确描述问题
-- [ ] Scope 明确写出 PortSwigger 官方实验
-- [ ] 复现步骤没有跳步
-- [ ] Observed 与 Expected 分开
-- [ ] Impact 没有超出证据
-- [ ] Remediation 对应根本原因
-- [ ] 没有 Cookie、密码、Token 或 API key
+- [x] 标题准确描述问题
+- [x] Scope 明确写出 PortSwigger 官方实验
+- [x] 复现步骤没有跳步
+- [x] Observed 与 Expected 分开
+- [x] Impact 没有超出证据
+- [x] Remediation 对应根本原因
+- [x] 没有 Cookie、密码、Token 或 API key
 
 ## AI 编辑 Prompt
 
@@ -55,10 +55,18 @@ Reports/Day27-first-report.md
 
 ## 成功标准
 
-- [ ] 报告模板全部填写
-- [ ] 完成脱敏检查
-- [ ] 至少根据审阅修改一次
-- [ ] 能在两分钟内口头概述报告
+- [x] 报告模板全部填写
+- [x] 完成脱敏检查
+- [x] 至少根据审阅修改一次
+- [x] 能在两分钟内口头概述报告
+
+## 审阅与修改记录
+
+审阅时把容易过度推断的“真实应用漏洞”表述改为“该官方 Lab 中已经验证的行为”，并在 `Security Impact`、`Root Cause` 和 `Limitations` 中明确不对其他系统作结论。复核后确认范围、步骤、观察结果、期望结果、修复建议和脱敏说明均已完整填写。
+
+## 两分钟口头概述
+
+我在 PortSwigger 官方 `Unprotected admin functionality` Lab 中整理了一份脱敏报告。公开的 `/robots.txt` 指向一个管理路径；在没有管理员凭据的条件下，该路径返回了管理功能和 Delete 操作。完成实验指定动作后，页面显示删除成功，Lab 状态为 Solved。报告建议在每个管理页面和操作上执行服务器端身份与角色检查，并说明这些证据只适用于该官方教学 Lab。
 
 ## Git Commit
 
@@ -66,4 +74,3 @@ Reports/Day27-first-report.md
 git add Cybersecurity/AI-Hacker-Roadmap
 git commit -m "Complete day 27: write first vulnerability report"
 ```
-

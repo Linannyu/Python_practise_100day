@@ -44,3 +44,4 @@
 | Day 37 | AI-Hacker-Roadmap | Day24 | 让 AI 提出可验证假设 | 08/23/2026 |
 | Day 38 | AI-Hacker-Roadmap | Day25 | 人工验证 AI 的判断 | 08/25/2026 |
 | Day 39 | AI-Hacker-Roadmap | Day26 | 整理脱敏漏洞证据 | 08/26/2026 |
+| Day 40 | AI-Hacker-Roadmap | Day27 | 编写脱敏漏洞报告 | 08/27/2026 |
