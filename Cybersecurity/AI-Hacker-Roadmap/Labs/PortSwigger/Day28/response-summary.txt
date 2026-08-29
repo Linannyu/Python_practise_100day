@@ -1,0 +1,15 @@
+Baseline observable result: the local Lab product page displayed the "3D Voice Assistants" product details for productId=1.
+
+Hypothesis: if productId receives non-numeric text, the Lab may return a detailed error that exposes third-party framework information.
+
+Single changed element: productId changed from 1 to abc.
+
+Direct changed-result observation: unavailable. The browser environment returned ERR_BLOCKED_BY_CLIENT before the request reached the Lab. No server status, response body or stack trace is claimed from this attempted request.
+
+Official-solution result: the official Lab Solution states that a non-integer productId produces an exception with a full stack trace that reveals Apache Struts 2 2.3.31.
+
+Lab completion: the learner confirmed that submitting the official version answer resulted in Lab status "Solved".
+
+What this evidence proves: the normal baseline page was observed; the test changed only productId; the official Solution identifies the intended information disclosure and framework version; the learner confirmed Lab completion.
+
+What this evidence does not prove: it does not contain a directly captured error response from this browser session, server source code, details about any other system, or a finding about a real website.

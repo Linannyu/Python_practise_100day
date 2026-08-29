@@ -60,14 +60,50 @@ https://portswigger.net/web-security/information-disclosure/exploiting/lab-infol
 
 ## 成功标准
 
-- [ ] 保存基准
-- [ ] 写出可验证假设
-- [ ] 每次只改一个变量
-- [ ] 找到错误信息泄露的版本信息
-- [ ] Lab 显示 `Solved`
-- [ ] 完成脱敏证据与根本原因
+- [x] 保存基准
+- [x] 写出可验证假设
+- [x] 每次只改一个变量
+- [x] 找到错误信息泄露的版本信息
+- [x] Lab 显示 `Solved`
+- [x] 完成脱敏证据与根本原因
+
+## 本次实验记录
+
+```text
+目标：找出详细错误信息泄露的第三方框架版本，并提交官方 Lab 要求的版本号。
+
+可能的输入点：商品详情页 URL 中的 productId 参数。
+
+基准请求：GET /product?productId=1；临时实例域名已脱敏。
+
+基准响应：页面正常显示 3D Voice Assistants 商品详情。
+
+我的假设：如果只把 productId 从数字改成普通非数字文字，服务器可能因数据类型不符合预期而返回详细错误信息；若错误信息包含第三方框架版本，则支持“错误消息泄露版本信息”的判断。
+
+最小测试：只把 productId 从 1 改为 abc，其他字段不变。
+
+预期结果：出现错误响应，且可能显示内部框架或版本信息。
+
+实际限制：浏览器环境在请求到达 Lab 前返回 ERR_BLOCKED_BY_CLIENT，因此没有直接捕获本次 Lab 的错误响应、状态码或堆栈。
+
+使用的提示/官方资料：浏览器阻拦后查看了官方 Solution。官方说明：非整数 productId 会触发异常和完整堆栈，泄露 Apache Struts 2 2.3.31。
+
+实际完成结果：用户确认提交官方版本答案后，Lab 状态显示 Solved。
+```
 
 ## 根本原因与修复
+
+详细异常信息不应直接返回给普通用户，因为它可能包含框架名称、版本或内部实现线索。普通用户应看到通用、无敏感细节的错误提示；完整异常和堆栈应记录在只允许授权运维人员访问的服务器端日志中。除了正确的错误处理，也应保持第三方框架在受支持和更新的版本，以减少已知风险。
+
+## 脱敏证据
+
+证据包位于 `Labs/PortSwigger/Day28/`，包含脱敏请求摘要、响应摘要和说明文件。它明确区分了直接观察到的基准、浏览器客户端阻拦，以及来自官方 Solution 的版本信息；不包含临时域名、Cookie、Session、Authorization、完整请求/响应头或完整错误堆栈。
+
+## 今日一句话总结
+
+今天我先用正常的 productId 建立基准，再只改变参数类型；官方 Lab 的详细错误会泄露 Apache Struts 2 2.3.31，说明异常信息应该对用户保持通用、把细节留在受保护的服务器日志中。
+
+## 课程复核要点
 
 报告应讨论：
 
@@ -84,4 +120,3 @@ https://portswigger.net/web-security/information-disclosure/exploiting/lab-infol
 git add Cybersecurity/AI-Hacker-Roadmap
 git commit -m "Complete day 28 comprehensive lab"
 ```
-

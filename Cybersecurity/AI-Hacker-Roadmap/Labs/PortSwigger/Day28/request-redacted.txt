@@ -1,0 +1,24 @@
+Evidence scope: completed PortSwigger Web Security Academy training lab only.
+
+Baseline request summary
+Method: GET
+Path: /product?productId=1
+Host: [lab-instance redacted]
+
+Baseline observation
+The product detail page for "3D Voice Assistants" loaded normally.
+
+Single changed input
+The productId value was changed from the numeric value 1 to the ordinary non-numeric text abc. No other request field was intentionally changed.
+
+Client-side limitation
+The browser environment blocked the changed navigation with ERR_BLOCKED_BY_CLIENT, so the changed request did not reach the Lab and no server error response was directly captured.
+
+Official-solution reference
+Because of that client-side block, the official Lab Solution was consulted. It states that a non-integer productId causes an exception and that the detailed error output reveals Apache Struts 2 2.3.31.
+
+Omitted on purpose
+- Temporary lab domain and instance identifier
+- Cookie, Session and Authorization values
+- Full request and response headers
+- Full error response and stack trace

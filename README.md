@@ -45,3 +45,4 @@
 | Day 38 | AI-Hacker-Roadmap | Day25 | 人工验证 AI 的判断 | 08/25/2026 |
 | Day 39 | AI-Hacker-Roadmap | Day26 | 整理脱敏漏洞证据 | 08/26/2026 |
 | Day 40 | AI-Hacker-Roadmap | Day27 | 编写脱敏漏洞报告 | 08/27/2026 |
+| Day 41 | AI-Hacker-Roadmap | Day28 | 完成综合授权靶场 | 08/28/2026 |
