@@ -44,23 +44,23 @@ rg -n --hidden -i "cookie:|authorization:|password|api[_-]?key|token|session" Cy
 
 检查：
 
-- [ ] 公网 IP
-- [ ] Cookie 与 Session 值
-- [ ] Token、密码、API key
-- [ ] 实验实例域名或 ID
-- [ ] 真实姓名、邮箱、学校信息
-- [ ] 无意提交的大文件
+- [x] 公网 IP：未发现。
+- [x] Cookie 与 Session 值：未发现真实值；证据文件只保留 `[redacted]` 或摘要。
+- [x] Token、密码、API key：已移除 Day 07 中的实验临时密码；未发现 Token 或 API key。
+- [x] 实验实例域名或 ID：未保留临时实验实例域名或 ID。
+- [x] 真实姓名、邮箱、学校信息：未发现。
+- [x] 无意提交的大文件：未发现；课程图片只保留必要的已脱敏截图。
 
 ## 项目质量检查
 
-- [ ] Day 文件编号完整
-- [ ] 所有内部链接有效
-- [ ] Markdown 标题清楚
-- [ ] 截图有说明并已脱敏
-- [ ] Python 代码可以运行
-- [ ] `requirements.txt` 存在
-- [ ] `.venv/` 没有进入 Git
-- [ ] `git status` 只显示预期改动
+- [x] Day 文件编号完整：Day01–Day30 都存在。
+- [x] 所有内部链接有效：已检查项目内 Markdown 相对链接。
+- [x] Markdown 标题清楚：项目首页、作品集和每日文件均使用层级标题。
+- [x] 截图有说明并已脱敏：Day 14 截图与证据文件不含会话值或临时实验地址。
+- [x] Python 代码可以运行：已通过 Python 编译检查，并运行 Day 25 本地验证脚本。
+- [x] `requirements.txt` 存在：`Scripts/requirements.txt` 已列出 `requests`。
+- [x] `.venv/` 没有进入 Git：`.gitignore` 已忽略，Git 追踪列表中没有虚拟环境文件。
+- [x] `git status` 只显示预期改动：仅包括 Day 29 的项目整理文件与脱敏修订。
 
 ## 作品集摘要
 
@@ -89,3 +89,11 @@ git commit -m "Polish AI hacker roadmap portfolio"
 
 是否推送或公开仓库由你之后单独决定。
 
+## 本次整理结果
+
+- 已更新项目首页 [README.md](../README.md)，使进度、范围、工具和安全边界与当前学习状态一致。
+- 已创建 [PORTFOLIO.md](../PORTFOLIO.md)，用简短语言说明完成内容、可解释内容和下一步计划。
+- 已检查常见敏感字段的搜索结果。教学文字会出现 `Cookie`、`Session` 和 `password` 等词；人工检查后没有保留真实会话值、个人信息或实验临时地址。
+- 已移除 Day 07 中原本写下的实验临时登录凭据，因此今后公开项目时不需要上传账号或密码。
+
+本日完成后，保留本地修改供自己检查；是否 Git commit、推送或公开，由项目拥有者单独决定。

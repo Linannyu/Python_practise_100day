@@ -46,4 +46,4 @@
 | Day 39 | AI-Hacker-Roadmap | Day26 | 整理脱敏漏洞证据 | 08/26/2026 |
 | Day 40 | AI-Hacker-Roadmap | Day27 | 编写脱敏漏洞报告 | 08/27/2026 |
 | Day 41 | AI-Hacker-Roadmap | Day28 | 完成综合授权靶场 | 08/28/2026 |
-| Day 42 | 暂定 | 暂定 | 暂定 | 08/29/2026 |
+| Day 42 | AI-Hacker-Roadmap | Day29 | 整理 GitHub 项目 | 08/30/2026 |
