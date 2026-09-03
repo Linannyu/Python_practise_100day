@@ -1,56 +1,49 @@
-# Chapter 06 Practice — String
+# Day 06 Lab — Build a Username Inspector
 
-每题都先写下合法 index 范围：`0` 到 `s.length() - 1`。除非题目说可为 null，否则假设 String 非 null。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Build a text-validation report using String methods and loops. You will reuse conditionals and methods while practicing safe indexing.
 
-## Problem 06-01 🟢 Beginner — Length
-给定 String word，打印它的长度。
+**Today’s Java:** `length()`、`charAt()`、`substring()`、`indexOf()`、`equals()`、immutable Strings.
 
-## Problem 06-02 🟢 Beginner — Last character
-给定非空 String word，打印最后一个字符。
+**Reuse from Days 01–05:** methods, boolean conditions, loops, counters, early return values.
 
-## Problem 06-03 🟢 Beginner — First three
-给定至少三个字符的 word，打印前三个字符。
+## Mission
 
-## Problem 06-04 🟢 Beginner — Uppercase
-给定 word，打印大写版；随后再打印原 word，展示 String 不可变。
+Create `UsernameInspector.java`. Implement:
 
-## Problem 06-05 🟢 Beginner — Content match
-给定 String command，内容为 `start` 时打印 `go`，否则打印 `wait`。
+```java
+public static boolean isValidUsername(String username)
+public static int countDigits(String username)
+public static String initials(String firstName, String lastName)
+```
 
-## Level 2 — 5 problems
+### Valid username rules
 
-## Problem 06-06 🟡 Intermediate — First occurrence
-给定 text 和 target，打印 target 第一次出现的 index；若不存在，打印 `missing`。
+A username is valid only if it:
 
-## Problem 06-07 🟡 Intermediate — Initials
-给定 first 与 last，返回/打印形如 `L.A.` 的 initials。
+- has 5–12 characters inclusive;
+- contains no spaces;
+- starts with a letter;
+- contains at least one digit.
 
-## Problem 06-08 🟡 Intermediate — Remove ends
-给定长度至少 2 的 word，打印移除首尾字符后的中间部分。
+Use a loop and `charAt` for character checks. Do not use regular expressions or advanced Java.
 
-## Problem 06-09 🟡 Intermediate — Character counter
-给定 word 和 char target，用循环统计 target 出现次数。
+## Required report
 
-## Problem 06-10 🟡 Intermediate — Reverse
-给定 word，用循环构造并打印其反转文字。
+In `main`, inspect `"lin2026"`, `"ab 12"`, and `"student"`. For each, print the username, whether it is valid, and its digit count. Then print initials for `Lin` and `Zhang` as `L.Z.`.
 
-## Level 3 — 3 problems
+## Acceptance checks
 
-## Problem 06-11 🔴 Advanced — Vowel count
-实现 `public static int countVowels(String text)`，忽略大小写，统计 a/e/i/o/u。
+1. `lin2026` is valid with 4 digits.
+2. `ab 12` is invalid because it has a space.
+3. `student` is invalid because it has no digit.
+4. `1lin2026` is invalid because its first character is not a letter.
 
-## Problem 06-12 🔴 Advanced — Palindrome text
-实现 `public static boolean isPalindrome(String text)`，假设 text 为小写且不含空格。
+## Stretch goal
 
-## Problem 06-13 🔴 Advanced — Word censor
-给定 text 和 banned，若 text 包含 banned，打印 `blocked`；否则打印 `allowed`。使用 `indexOf`。
+Implement `maskUsername(String username)` that returns the first and last characters with `*` in the middle, such as `l*****6`.
 
-## AP CSA Style — 2 problems
+## Reflection
 
-## Problem 06-14 ⭐ AP CSA — Method writing 🧪 Automated
-实现 `public static String middle(String s)`：若长度为奇数返回中间一个字符组成的 String；若偶数返回中间两个字符。保证 s 非空。测试：`python3 run_tests.py 06-14`。
-
-## Problem 06-15 ⭐ AP CSA — compareTo trace
-写完整程序比较 `"apple".compareTo("banana")` 与 `"cat".compareTo("cat")` 的符号；输出 `before` 或 `same`，不要依赖具体负数。
+State why `username.equals("admin")` is safer than `username == "admin"`. Optional focused drills: [Drill Bank](./drills.md).

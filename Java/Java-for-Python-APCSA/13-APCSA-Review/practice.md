@@ -1,56 +1,90 @@
-# Chapter 13 Practice — AP CSA Review
+# Day 13 Capstone Lab — Build an AP CSA Study Dashboard
 
-这一章组合前面知识。做题时像 FRQ 一样：先写方法签名，再设计变量与边界测试，最后测试和记录错题。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Create a small, complete AP CSA-style program that models study tasks, analyzes score data, and produces a final report. This is an integration Lab: the goal is clear design and correct basic Java, not advanced frameworks.
 
-## Problem 13-01 🟢 Beginner — Length triad
-写小程序，分别打印 String、int array、ArrayList 的长度，使用各自正确语法。
+**Today’s focus:** AP CSA problem decomposition, class design, ArrayList traversal, arrays/2D arrays, methods, edge cases, testing, and debugging.
 
-## Problem 13-02 🟢 Beginner — Average precisely
-实现 `average(int[] values)`，返回 double 平均数。假设非空。
+**Reuse from Days 01–12:** all core course concepts. Pick simple, correct implementations rather than trying to use every feature in one clever expression.
 
-## Problem 13-03 🟢 Beginner — Safe String match
-实现 `isJava(String language)`，在 language 为 null 时返回 false，否则判断内容是否为 `Java`。
+## Mission
 
-## Problem 13-04 🟢 Beginner — Random die
-用 `Random` 创建并打印 1–6 的骰子值；解释为何两端都正确。
+Create `StudyDashboard.java`. The program must include:
 
-## Problem 13-05 🟢 Beginner — Bug labels
-为下列错误各写一行注释分类：缺少分号、array 越界、输出错误答案。使用 compile/runtime/logic 三种标签。
+1. a `StudyTask` class;
+2. an `ArrayList<StudyTask>` of at least four tasks;
+3. a one-dimensional `int[]` of quiz scores;
+4. a two-dimensional `int[][]` of weekly focus minutes;
+5. methods that calculate and print a dashboard.
 
-## Level 2 — 5 problems
+## Minimum `StudyTask` design
 
-## Problem 13-06 🟡 Intermediate — Positive average
-实现 `averagePositive(int[] values)`：只平均正数；没有正数时返回 0.0。
+```java
+private String title;
+private int estimatedMinutes;
+private boolean complete;
 
-## Problem 13-07 🟡 Intermediate — Student pass list
-给定 `ArrayList<Student>`（可自己定义简单 Student），返回及格学生数量。
+public StudyTask(String title, int estimatedMinutes)
+public void markComplete()
+public boolean isComplete()
+public int getEstimatedMinutes()
+public String getTitle()
+```
 
-## Problem 13-08 🟡 Intermediate — Grid row max
-实现 `rowMax(int[][] grid, int row)`，返回指定非空行的最大值。
+## Required dashboard methods
 
-## Problem 13-09 🟡 Intermediate — Word score
-实现 `wordScore(String word)`：每个元音 2 分、其他字符 1 分。
+Use these exact method headers where applicable:
 
-## Problem 13-10 🟡 Intermediate — Debug a loop
-给出/写一个原本使用 `i <= list.size()` 的 ArrayList 遍历，修正它并解释正确上界。
+```java
+public static int countIncomplete(ArrayList<StudyTask> tasks)
+public static int sumPositive(int[] values)
+public static double average(int[] values)
+public static int totalMinutes(int[][] grid)
+public static int longestIncreasingRun(int[] values)
+```
 
-## Level 3 — 3 problems
+`longestIncreasingRun` returns 0 for an empty array; otherwise it returns the longest run of consecutive strictly increasing scores. Example: `{70, 75, 80, 60, 65}` gives 3.
 
-## Problem 13-11 🔴 Advanced — Most frequent value
-给定 int array，返回出现次数最多的值；若并列，返回最先达到最大次数的值。
+## Required final report
 
-## Problem 13-12 🔴 Advanced — Remove failing scores
-给定 `ArrayList<Integer>`，从后向前删除所有小于 60 的分数，返回删除数量。
+Your main method must print:
 
-## Problem 13-13 🔴 Advanced — Recursive vowels
-实现 `recursiveVowelCount(String s)`，不使用循环。
+```text
+=== AP CSA Study Dashboard ===
+Incomplete tasks: ...
+Remaining estimated minutes: ...
+Positive score total: ...
+Score average: ...
+Longest improving score run: ...
+Total focus minutes: ...
+```
 
-## AP CSA Style — 2 problems
+The values must come from your objects/arrays/methods—not hardcoded output. Mark at least one task complete before printing.
 
-## Problem 13-14 ⭐ AP CSA — Mini FRQ
-实现 `public static int longestIncreasingRun(int[] values)`，返回连续严格递增元素的最长 run 长度；空 array 返回 0。
+## Test plan
 
-## Problem 13-15 ⭐ AP CSA — Class + ArrayList FRQ
-设计 `Task`（description、complete boolean、markComplete、isComplete）并实现 `countIncomplete(ArrayList<Task> tasks)`。用 main 至少测试三项。
+Before you consider the Lab done, test:
+
+1. empty score array for `longestIncreasingRun`;
+2. all-negative score values for `sumPositive`;
+3. a list where every task is complete;
+4. a grid with a short row such as `{20, 30}`;
+5. a single-score array for average and run length.
+
+## Acceptance checks — AP CSA submission checklist
+
+- Every given method has the exact name, parameter types, and return type.
+- `String` content comparisons use `.equals()`.
+- arrays use `.length`; ArrayLists use `.size()`.
+- no loop attempts access at `length` / `size`.
+- use `double` division for average.
+- fields are private and object behavior is called by methods.
+
+## Stretch goal
+
+Add a recursive method `countActiveDays(int[] values, int index)` to report active days without a loop. Keep it separate from the required `longestIncreasingRun` method.
+
+## Reflection
+
+Update [PROGRESS.md](../PROGRESS.md), add your two most useful bugs to [mistakes.md](../mistakes.md), and then choose specific warm-up drills from [Drill Bank](./drills.md) only for skills that still feel weak.

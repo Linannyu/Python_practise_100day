@@ -49,3 +49,4 @@
 | Day 42 | AI-Hacker-Roadmap | Day29 | 整理 GitHub 项目 | 08/30/2026 |
 | Day 43 | AI-Hacker-Roadmap | Day30 | 总结、复盘与下一阶段计划 | 08/31/2026 |
 | Day 44 | Java_for_Python_APCSA | 添加了Java_for_Python_APCSA文件 | 用于开学后学习APCSA做准备 | 09/01/2026 |
+| Day 45 | Java_for_Python_APCSA | Day01 | 区分print和println的区别 | 09/02/2026 |

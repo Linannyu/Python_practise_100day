@@ -1,56 +1,61 @@
-# Chapter 11 Practice — 2D Arrays
+# Day 11 Lab — Analyze a Weekly Focus Grid
 
-每一次访问都问自己：这是 row 还是 column？通用遍历的内层上界使用 `grid[row].length`。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Treat a two-dimensional array as a schedule: rows are weeks, columns are study days. Build an analyzer with nested loops that reuses methods, conditions, and report design.
 
-## Problem 11-01 🟢 Beginner — Create grid
-创建 `{{1, 2}, {3, 4}}` 的 `int[][]`，打印右下角的值。
+**Today’s Java:** `int[][]`, `[row][col]`, `grid.length`, `grid[row].length`, nested loops.
 
-## Problem 11-02 🟢 Beginner — Dimensions
-给定二维 array grid，打印行数与第 0 行列数。
+**Reuse from Days 01–10:** methods, loops, accumulators, conditionals, classes/polymorphism as optional context.
 
-## Problem 11-03 🟢 Beginner — All cells
-用 nested loops 逐行打印二维 array 的每个元素。
+## Mission
 
-## Problem 11-04 🟢 Beginner — Total
-计算并打印 grid 中所有 int 的总和。
+Create `FocusGridAnalyzer.java`. Use this grid, where each row is one week and each value is minutes studied on a day:
 
-## Problem 11-05 🟢 Beginner — Count zeros
-统计二维 array 中值为 0 的 cell 数量。
+```java
+int[][] focus = {
+    {30, 45, 0, 60, 25},
+    {50, 50, 40, 0, 70},
+    {20, 35, 55, 65, 75}
+};
+```
 
-## Level 2 — 5 problems
+Implement:
 
-## Problem 11-06 🟡 Intermediate — Row sums
-每一行各打印一个总和。确保每行开始前将 sum 设回 0。
+```java
+public static int totalMinutes(int[][] grid)
+public static int weekTotal(int[][] grid, int row)
+public static int countStrongSessions(int[][] grid, int minimum)
+public static int firstStrongDayInWeek(int[][] grid, int row, int minimum)
+```
 
-## Problem 11-07 🟡 Intermediate — Maximum
-给定非空二维 array，返回/打印最大 cell。
+## Required report
 
-## Problem 11-08 🟡 Intermediate — Replace negatives
-把 grid 中每个负值改为 0，打印修改后的 grid。
+Print:
 
-## Problem 11-09 🟡 Intermediate — Diagonal sum
-给定正方形矩阵，计算主对角线 `grid[i][i]` 总和。
+1. total course minutes;
+2. total for every week;
+3. count of sessions at least 60 minutes;
+4. the first strong-day index in week 0 with a minimum of 60;
+5. a grid where every 0 is replaced with `REST` and every positive number prints as its minute value.
 
-## Problem 11-10 🟡 Intermediate — Row target
-给定 grid 与 target，打印包含 target 的每一行 index；一行只打印一次。
+## Rules
 
-## Level 3 — 3 problems
+- The outer loop iterates rows; the inner loop iterates that row’s columns.
+- Write `grid[row].length` for inner loop bounds; do not assume all rows have the same length.
+- `firstStrongDayInWeek` returns `-1` when the row has no matching value.
+- Keep each method responsible for one result; `main` formats the report.
 
-## Problem 11-11 🔴 Advanced — Column sums
-给定矩形 grid，为每列计算一个总和。明确选择列作为外层或以 accumulator array 保存各列。
+## Acceptance checks
 
-## Problem 11-12 🔴 Advanced — Neighbor pairs
-统计每行中相邻、相等元素对的数量；不要比较每行最后一个元素与下一行第一个元素。
+1. Verify total by manually adding one row, then all rows.
+2. Change one row to `{10, 20}`; the program must still run safely.
+3. Use a threshold of 100; every first-strong result becomes `-1`.
 
-## Problem 11-13 🔴 Advanced — Jagged safe total
-给定可能每行长度不同的 grid，写一个仍然安全的总和方法。
+## Stretch goal
 
-## AP CSA Style — 2 problems
+Implement `public static void makeBorderZero(int[][] grid)` on a separate small rectangular grid. Explain why a 1-row or 1-column grid is an edge case worth testing.
 
-## Problem 11-14 ⭐ AP CSA — Method writing
-实现 `public static int countAbove(int[][] grid, int threshold)`，返回严格大于 threshold 的 cell 数量。
+## Reflection
 
-## Problem 11-15 ⭐ AP CSA — FRQ-style transform
-实现 `public static void makeBorderZero(int[][] grid)`，将矩形 grid 的外边框全设为 0，内部保持不变。先处理/判断 top、bottom、left、right 边界。
+Write the difference among `grid.length`, `grid[0].length`, and `grid[row].length`. Optional focused drills: [Drill Bank](./drills.md).

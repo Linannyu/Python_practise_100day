@@ -1,56 +1,63 @@
-# Chapter 05 Practice — Methods
+# Day 05 Lab — Turn the Study Analyzer into a Toolkit
 
-对每个 non-void method，自己准备至少三个 test：普通值、边界值、负值或特殊值。方法题写在 `Main` 中，按给定 header 原样实现。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Refactor your Day 04 report into small methods with clear contracts. The Lab succeeds when `main` reads like a high-level plan rather than one long algorithm.
 
-## Problem 05-01 🟢 Beginner — Greeting method
-实现 `public static void greet(String name)`，打印 `Hello, <name>!`。
+**Today’s Java:** method headers, parameters, arguments, return values, `void`, `static`.
 
-## Problem 05-02 🟢 Beginner — Double it
-实现 `public static int doubleIt(int n)`，返回 n 的两倍。
+**Reuse from Days 01–04:** arrays, loops, conditions, integer division awareness, formatted output.
 
-## Problem 05-03 🟢 Beginner — Absolute difference
-实现 `public static int difference(int a, int b)`，返回 a 与 b 的正差；可用 `Math.abs`。
+## Mission
 
-## Problem 05-04 🟢 Beginner — Is positive
-实现 `public static boolean isPositive(int n)`，只有 n 大于 0 返回 true。
+Create `StudyToolkit.java`. Use this data in `main`:
 
-## Problem 05-05 🟢 Beginner — First character
-实现 `public static char firstChar(String s)`，返回第一个字符。假设 s 非空。
+```java
+int[] minutes = {35, 0, 50, 80, 20, 65, 40};
+```
 
-## Level 2 — 5 problems
+Implement all four methods below, then call them from `main` to print a report:
 
-## Problem 05-06 🟡 Intermediate — Average
-实现 `public static double average(int a, int b)`，返回精确平均数而非整数除法。
+```java
+public static int totalMinutes(int[] values)
+public static int countStrongDays(int[] values, int minimum)
+public static double averageMinutes(int[] values)
+public static int firstDayAtLeast(int[] values, int minimum)
+```
 
-## Problem 05-07 🟡 Intermediate — In range
-实现 `public static boolean inRange(int value, int low, int high)`，两端均包含。
+## Method contracts
 
-## Problem 05-08 🟡 Intermediate — Repeat
-实现 `public static String repeat(String word, int times)`，返回 word 连续出现 times 次的 String。times 为 0 时返回空 String。
+- `totalMinutes` returns the sum.
+- `countStrongDays` returns how many values are at least `minimum`.
+- `averageMinutes` returns a double; assume the array is nonempty.
+- `firstDayAtLeast` returns the first matching index, otherwise `-1`.
 
-## Problem 05-09 🟡 Intermediate — Larger
-实现 `public static int larger(int a, int b)`，不得调用 `Math.max`。
+## Required tests in `main`
 
-## Problem 05-10 🟡 Intermediate — Grade label
-实现 `public static String gradeLabel(int score)`，返回 A/B/C/D/F。
+Test the original array, `{0, 0}`, and `{60}`. For `{60}`, the total is 60, strong-day count at 60 is 1, average is 60.0, and first matching index is 0.
 
-## Level 3 — 3 problems
+## Acceptance checks
 
-## Problem 05-11 🔴 Advanced — Digit count
-实现 `public static int digitCount(int n)`，返回 n 的十进制位数；正确处理 0 和负数。
+1. Each of the four required methods has the exact stated header.
+2. Returning methods use `return`; they do not print the result themselves.
+3. `firstDayAtLeast(new int[] {0, 0}, 60)` returns `-1`.
+4. `averageMinutes(new int[] {60})` returns `60.0`, not an int.
 
-## Problem 05-12 🔴 Advanced — Square 🧪 Automated
-实现 `public static int square(int x)`。文件：`work/05-Methods/05-12/Main.java`；运行 `python3 run_tests.py 05-12`。
+## Design rules
 
-## Problem 05-13 🔴 Advanced — Palindrome number
-实现 `public static boolean isPalindromeNumber(int n)`，判断非负整数的数字是否前后相同，例如 1221 true、123 false。
+- Do not print from the three returning methods.
+- Do not duplicate loop logic in `main`.
+- Keep the method headers exactly as written.
+- Add a short comment above each method describing its return value.
 
-## AP CSA Style — 2 problems
+## Stretch goal
 
-## Problem 05-14 ⭐ AP CSA — Header contract
-实现 `public static int countMultiples(int start, int end, int divisor)`，返回闭区间内 divisor 倍数的数量。可假设 divisor 不为 0。
+Add `public static boolean metWeeklyGoal(int[] values, int goal)` and use it in the report.
 
-## Problem 05-15 ⭐ AP CSA — Overload design
-写两个 `describe` 方法：一个接收 `int` 并返回 `"number: <n>"`，一个接收 `String` 并返回 `"word: <s>"`。在 main 中调用两者。
+## Automated method habit
+
+The course tester has a fixed-signature example for this chapter: [Problem 05-12 in Drill Bank](./drills.md). You can run it after creating its separate `work/` file; this Lab itself should be tested through the cases above.
+
+## Reflection
+
+Which logic belongs in a method versus in `main`? Write one answer in [mistakes.md](../mistakes.md) if you made a return/print mix-up.

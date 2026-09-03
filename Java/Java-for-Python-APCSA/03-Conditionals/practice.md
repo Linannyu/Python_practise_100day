@@ -1,56 +1,65 @@
-# Chapter 03 Practice — Conditionals
+# Day 03 Lab — Build a Course Readiness Checker
 
-所有分支写 `{ }`，即使暂时只有一行。先想清楚每个边界值该落在哪一支。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Create a decision program that gives a learner one clear next action. Practice ordering conditions and correctly combining booleans.
 
-## Problem 03-01 🟢 Beginner — Sign
-给定 `int n`，打印 `positive`、`negative` 或 `zero`。
+**Today’s Java:** boolean expressions, `if` / `else if` / `else`, `&&`, `||`, String `.equals()`.
 
-## Problem 03-02 🟢 Beginner — Even label
-给定 `int n`，打印 `even` 或 `odd`。
+**Reuse from Days 01–02:** typed variables, arithmetic output, `final` constants, and exact messages.
 
-## Problem 03-03 🟢 Beginner — Pass or retry
-给定 `int score`，若至少 60 打印 `pass`，否则打印 `retry`。
+## Mission
 
-## Problem 03-04 🟢 Beginner — Teenager
-给定 `int age`，打印 boolean：年龄是否在 13 到 19（含）之间。
+Create `ReadinessChecker.java`. It reads values already declared in `main`:
 
-## Problem 03-05 🟢 Beginner — Exact word
-给定 `String answer`，若内容为 `yes` 打印 `accepted`，否则打印 `not accepted`。必须正确比较 String。
+- `int completedLabs`
+- `int averageScore`
+- `boolean hasReviewedMistakes`
+- `String goal`
 
-## Level 2 — 5 problems
+Print exactly one readiness message according to this policy:
 
-## Problem 03-06 🟡 Intermediate — Letter grade
-给定 score，打印 A（90+）、B（80–89）、C（70–79）、D（60–69）或 F。确保条件顺序正确。
+| Priority | Rule | Message |
+|---|---|---|
+| 1 | averageScore is below 60 | `Review basics before moving on.` |
+| 2 | reviewed mistakes is false | `Review your mistakes, then retry.` |
+| 3 | completedLabs is at least 3 and goal equals `AP CSA` | `Ready for AP CSA practice.` |
+| 4 | otherwise | `Keep building your foundation.` |
 
-## Problem 03-07 🟡 Intermediate — Ticket price
-给定 age：小于 5 价格 0；5–12 价格 8；65+ 价格 9；其余价格 12。打印价格。
+## Required cases
 
-## Problem 03-08 🟡 Intermediate — Valid rectangle
-给定 `int width` 和 `int height`，只有两者都大于 0 才打印 `valid`，否则打印 `invalid`。
+Test at least these values by changing variables and re-running:
 
-## Problem 03-09 🟡 Intermediate — Largest of two
-给定两个不同整数，打印较大者。不得使用 `Math.max`。
+1. `averageScore = 55`, other values positive → first message.
+2. `averageScore = 80`, `hasReviewedMistakes = false` → second message.
+3. score 80, reviewed true, labs 3, goal `AP CSA` → third message.
+4. score 80, reviewed true, labs 2 → fourth message.
 
-## Problem 03-10 🟡 Intermediate — Password gate
-给定 `String password`，只有内容等于 `java123` 时打印 `welcome`。不要使用 `==`。
+## Starter code
 
-## Level 3 — 3 problems
+```java
+public class ReadinessChecker {
+    public static void main(String[] args) {
+        int completedLabs = 3;
+        int averageScore = 80;
+        boolean hasReviewedMistakes = true;
+        String goal = "AP CSA";
 
-## Problem 03-11 🔴 Advanced — Median of three
-给定三个互不相同的 int，打印中间大小的数。不得排序或使用 array。
+        // TODO: write one ordered if / else if / else chain
+    }
+}
+```
 
-## Problem 03-12 🔴 Advanced — Leap year rule
-给定 year：能被 400 整除，或能被 4 整除但不能被 100 整除时，打印 `leap`；否则 `common`。
+## Acceptance checks
 
-## Problem 03-13 🔴 Advanced — Shipping
-给定 subtotal 和 boolean member：subtotal 至少 50 或 member 为 true 时免邮；否则运费 6.99。打印最终运费。
+- Exactly one message prints per run.
+- Use `goal.equals("AP CSA")`, not `goal == "AP CSA"`.
+- The low-score rule wins even if all later rules are also true.
 
-## AP CSA Style — 2 problems
+## Stretch goal
 
-## Problem 03-14 ⭐ AP CSA — Method writing
-实现 `public static String season(int month)`：12、1、2 为 `winter`；3–5 为 `spring`；6–8 为 `summer`；9–11 为 `fall`；其他返回 `invalid`。
+Add an invalid-score check: if score is outside 0–100, print `Invalid score.` before every other rule.
 
-## Problem 03-15 ⭐ AP CSA — Code trace
-不运行，追踪 `int x = 8; if (x > 5) { if (x < 8) x++; else x--; }` 的最终 x。再把它写成完整程序验证。
+## Reflection
+
+Add one mistake entry if you accidentally used `=` or `==` in a String condition. Optional focused drills: [Drill Bank](./drills.md).

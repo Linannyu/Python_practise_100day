@@ -1,56 +1,60 @@
-# Chapter 07 Practice — Arrays
+# Day 07 Lab — Build a Score Analyzer
 
-默认 array 非 null；题目若未特别说明，先考虑空 array 是否需要处理。修改 array 时用 index loop。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Use a fixed-size array to analyze test scores and produce a useful summary. The Lab combines methods, loops, conditionals, and today’s index-based array rules.
 
-## Problem 07-01 🟢 Beginner — Create and print
-创建 `{2, 4, 6, 8}` 的 int array，用循环打印每项。
+**Today’s Java:** `int[]`, `.length`, array indexing, enhanced `for`, in-place array modification.
 
-## Problem 07-02 🟢 Beginner — Length and endpoints
-给定非空 array，打印长度、第一个值和最后一个值。
+**Reuse from Days 01–06:** methods with return values, loop accumulators, thresholds, formatted reports.
 
-## Problem 07-03 🟢 Beginner — Sum
-给定 int array，计算并打印所有元素总和。
+## Mission
 
-## Problem 07-04 🟢 Beginner — Count positive
-给定 int array，打印正数元素的数量。
+Create `ScoreAnalyzer.java`. Start with:
 
-## Problem 07-05 🟢 Beginner — Add one
-给定 int array，把每个元素加一，然后打印修改后的 array。
+```java
+int[] scores = {88, 72, 95, 58, 88, 61};
+```
 
-## Level 2 — 5 problems
+Implement these methods:
 
-## Problem 07-06 🟡 Intermediate — Maximum
-给定非空 int array，打印最大元素，不得排序。
+```java
+public static int highestScore(int[] scores)
+public static int countPassing(int[] scores)
+public static int firstScoreAtLeast(int[] scores, int target)
+public static void addCurve(int[] scores, int points)
+```
 
-## Problem 07-07 🟡 Intermediate — First index
-给定 int array 与 target，打印 target 首次出现下标；若缺失打印 -1。
+## Rules
 
-## Problem 07-08 🟡 Intermediate — Reverse print
-给定 int array，以反向顺序打印元素，但不要修改原 array。
+- A passing score is at least 60.
+- `firstScoreAtLeast` returns `-1` if no score reaches target.
+- `addCurve` changes the original array, but no final score may exceed 100.
+- Use `scores.length`, never `scores.length()`.
 
-## Problem 07-09 🟡 Intermediate — Swap endpoints
-给定长度至少 2 的 array，交换第一个和最后一个元素，随后打印。
+## Required report and tests
 
-## Problem 07-10 🟡 Intermediate — Average above
-给定非空 array，计算其 `double` 平均值，打印大于平均值的元素。
+Before curving, print highest score, passing count, and first score at least 90. Apply a 5-point curve, then print the whole updated array.
 
-## Level 3 — 3 problems
+For the provided data, the first score at least 90 is index 2. After the curve, 95 becomes 100, not 100+.
 
-## Problem 07-11 🔴 Advanced — Second largest distinct
-给定至少两个不同值的 array，打印第二大的**不同**值；不得排序。
+Also test:
 
-## Problem 07-12 🔴 Advanced — Adjacent increase
-给定 array，统计满足 `arr[i] < arr[i + 1]` 的相邻对数量。
+- a one-element array `{59}`;
+- an array with no score at least 90;
+- an array that already contains 100.
 
-## Problem 07-13 🔴 Advanced — Replace negatives
-给定 int array，把所有负数替换为 0，并返回/打印替换数量。
+## Acceptance checks
 
-## AP CSA Style — 2 problems
+1. All traversal conditions use `< scores.length`.
+2. `addCurve` changes the caller’s array rather than a loop copy.
+3. No curved score is greater than 100.
+4. `firstScoreAtLeast` returns `-1` when no score satisfies the target.
 
-## Problem 07-14 ⭐ AP CSA — Method writing 🧪 Automated
-实现 `public static int sumPositive(int[] values)`，只返回大于 0 的元素总和。测试：`python3 run_tests.py 07-14`。
+## Stretch goal
 
-## Problem 07-15 ⭐ AP CSA — Array traversal FRQ
-实现 `public static boolean hasConsecutiveDuplicates(int[] values)`，若任意相邻元素相等返回 true，否则 false。
+Implement `hasConsecutiveDuplicates(int[] scores)` and use it to report whether adjacent equal scores exist.
+
+## Reflection
+
+Explain why `for (int score : scores) { score += 5; }` does not curve the original array. Optional focused drills: [Drill Bank](./drills.md).

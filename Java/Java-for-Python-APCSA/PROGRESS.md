@@ -1,107 +1,107 @@
-# Java Learning Progress
+# Java Learning Progress — Daily Labs
 
-> 规则：先完成 Lesson，再完成各层 Practice。分数填写“已通过 / 本层总题数”；不要因为看过答案而勾选完成。
+> 先完成当天 Lab 的 required acceptance checks，再查答案。Drills 是有针对性的补强，不是必须先刷完的关卡。
 
-## Chapter 01 — Basics
+## Day 01 — Java Study Card
+- [x] Lesson
+- [x] Main Lab compiled and runs
+- [x] All acceptance checks passed
+- [x] Reflection / mistake review
+- [x] Optional drills used if needed
+Status: Not started
+
+## Day 02 — Study Session Receipt
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 02 — Variables & Data Types
+## Day 03 — Course Readiness Checker
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 03 — Conditionals
+## Day 04 — Study Week Analyzer
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 04 — Loops
+## Day 05 — Study Toolkit
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 05 — Methods
+## Day 06 — Username Inspector
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 06 — String
+## Day 07 — Score Analyzer
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 07 — Arrays
+## Day 08 — Flexible Study Planner
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 08 — ArrayList
+## Day 09 — StudyTask Object
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 09 — Classes & Objects
+## Day 10 — Specialized Study Tasks
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 10 — Inheritance
+## Day 11 — Weekly Focus Grid
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 11 — 2D Arrays
+## Day 12 — Recursive Streak Explorer
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started
 
-## Chapter 12 — Recursion
+## Day 13 — AP CSA Study Dashboard
 - [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
-
-## Chapter 13 — AP CSA Review
-- [ ] Lesson
-- [ ] Level 1 — 5 题
-- [ ] Level 2 — 5 题
-- [ ] Level 3 — 3 题
-- [ ] AP CSA Style — 2 题
-Score: 0/15 (0%)
+- [ ] Main Lab compiled and runs
+- [ ] All acceptance checks passed
+- [ ] Reflection / mistake review
+- [ ] Optional drills used if needed
+Status: Not started

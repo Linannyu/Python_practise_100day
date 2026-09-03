@@ -1,56 +1,59 @@
-# Chapter 08 Practice — ArrayList
+# Day 08 Lab — Build a Flexible Study Planner
 
-所有题先加 `import java.util.ArrayList;`。注意题目所说“按 index”还是“按 value”删除。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Replace fixed-size data with a growing task list. You will use methods, loops, String comparison, and safe removal while practicing `ArrayList`.
 
-## Problem 08-01 🟢 Beginner — Names list
-创建 `ArrayList<String>`，添加三个人名并逐个打印。
+**Today’s Java:** `ArrayList<String>`, `add`、`get`、`set`、`remove`、`size`, `Integer`.
 
-## Problem 08-02 🟢 Beginner — Get and size
-给定 names，打印 size 和第一个元素。
+**Reuse from Days 01–07:** methods, String content comparison, conditions, indexed traversal, and report output.
 
-## Problem 08-03 🟢 Beginner — Replace
-给定 names，把 index 1 的元素替换为 `Lin`，随后打印 list。
+## Mission
 
-## Problem 08-04 🟢 Beginner — Remove index
-给定至少三项的 `ArrayList<String>`，删除 index 2 的项，打印修改后 list。
+Create `StudyPlanner.java` and import `java.util.ArrayList`. In `main`, create a list with:
 
-## Problem 08-05 🟢 Beginner — Integer total
-创建 `ArrayList<Integer>`，添加 3、5、7，用 `get` 求和并打印。
+```text
+Read lesson
 
-## Level 2 — 5 problems
 
-## Problem 08-06 🟡 Intermediate — Count long words
-给定 `ArrayList<String>`，统计长度至少 5 的 word 数量。
+Write Java code
+Review mistakes
+```
 
-## Problem 08-07 🟡 Intermediate — Double values
-给定 `ArrayList<Integer>`，使用 `set` 将每个元素替换为两倍。
+The empty String represents an accidental blank task.
 
-## Problem 08-08 🟡 Intermediate — Find item
-给定 list 和 target String，返回/打印 target 首个 index；不存在为 -1。不得使用 `indexOf`。
+Implement:
 
-## Problem 08-09 🟡 Intermediate — Safe backward removal
-给定 `ArrayList<Integer>`，从后向前删除所有负数，打印最终 list。
+```java
+public static void addIfMissing(ArrayList<String> tasks, String task)
+public static int removeBlankTasks(ArrayList<String> tasks)
+public static int countTasksContaining(ArrayList<String> tasks, String keyword)
+```
 
-## Problem 08-10 🟡 Intermediate — Unique append
-给定 names 和 candidate，只有当内容相同的名称不存在时才添加 candidate。使用 `.equals`。
+## Rules
 
-## Level 3 — 3 problems
+- `addIfMissing` must not add duplicate text; compare text using `.equals()`.
+- `removeBlankTasks` removes every `""` and returns the number removed.
+- Do not skip an element when removing: iterate backward or carefully control the index.
+- `countTasksContaining` uses `indexOf(keyword) >= 0`.
 
-## Problem 08-11 🔴 Advanced — Remove duplicate neighbors
-给定排序的 `ArrayList<Integer>`，移除重复项，使每个值只保留一次。允许从后向前遍历。
+## Required test sequence
 
-## Problem 08-12 🔴 Advanced — Move zeros
-给定 `ArrayList<Integer>`，保持非零元素原顺序，将所有 0 移到 list 尾部。
+1. Try adding `Read lesson` again; size should not grow.
+2. Add `Read ArrayList lesson`; size should grow once.
+3. Remove blank tasks and print the number removed and remaining list.
+4. Count tasks containing `Read`.
 
-## Problem 08-13 🔴 Advanced — Longest word
-给定非空 `ArrayList<String>`，返回最长 word；若同长，返回最先出现者。
+## Acceptance checks
 
-## AP CSA Style — 2 problems
+- Use `tasks.size()`, not `.length`.
+- Use `tasks.get(i)` / `tasks.set(i, value)`, not `[i]`.
+- The report still works after the list length changes.
 
-## Problem 08-14 ⭐ AP CSA — Method writing
-实现 `public static int removeShortWords(ArrayList<String> words, int minLength)`，删除长度小于 minLength 的 word，并返回删除数量。必须避免跳过元素。
+## Stretch goal
 
-## Problem 08-15 ⭐ AP CSA — Value versus index
-创建 `[1, 2, 3, 2]` 的 `ArrayList<Integer>`，删除**值** 2 的第一次出现，而不是 index 2。打印结果并在注释中说明所用 `remove` 调用。
+Add `moveCompletedToEnd(ArrayList<String> tasks)` for tasks beginning with `DONE:`, preserving other task order.
+
+## Reflection
+
+Write why `remove(2)` and `remove(Integer.valueOf(2))` mean different things on `ArrayList<Integer>`. Optional focused drills: [Drill Bank](./drills.md).

@@ -1,56 +1,55 @@
-# Chapter 09 Practice — Classes & Objects
+# Day 09 Lab — Model a Study Task as an Object
 
-除非题目另说，class 可与 `Main` 放在同一个文件；仅 `Main` 声明为 public。fields 默认写 private。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Move from “parallel variables” to objects that own their own state and behavior. This Lab turns the Day 08 planner into a collection of `StudyTask` objects.
 
-## Problem 09-01 🟢 Beginner — Simple Book
-写 `Book` class，含 `private String title`，以及接收 title 的 constructor。在 main 创建并打印 title（可先写 getter）。
+**Today’s Java:** fields, constructor, `this`, instance methods, getters, setters, `private`, `public`, `new`, `static`.
 
-## Problem 09-02 🟢 Beginner — Getter
-给 `Book` 增加 `public String getTitle()`。
+**Reuse from Days 01–08:** String methods, ArrayList, conditions, loops, status reporting.
 
-## Problem 09-03 🟢 Beginner — Counter object
-写 `Counter`，有 `private int value`（初始 0）和 `increment()`；在 main 调两次并打印 value。
+## Mission
 
-## Problem 09-04 🟢 Beginner — Setter
-为 `Counter` 写 `setValue(int value)`，用 `this.value = value`。
+Create `StudyTaskApp.java` containing a `public class StudyTaskApp` and a non-public `StudyTask` class in the same file.
 
-## Problem 09-05 🟢 Beginner — Person greeting
-写 `Person`，constructor 接收 name，`greet()` 打印 `Hello, <name>!`。
+`StudyTask` must have:
 
-## Level 2 — 5 problems
+```java
+private String title;
+private int estimatedMinutes;
+private boolean complete;
 
-## Problem 09-06 🟡 Intermediate — Student model
-写 `Student`：private name/score、constructor、getters、`isPassing()`（60+）。在 main 测试两名学生。
+public StudyTask(String title, int estimatedMinutes)
+public String getTitle()
+public int getEstimatedMinutes()
+public boolean isComplete()
+public void markComplete()
+public void updateEstimate(int minutes)
+public String toString()
+```
 
-## Problem 09-07 🟡 Intermediate — Bank balance
-写 `BankAccount`，有 balance、`deposit(double amount)` 和 `withdraw(double amount)`；不得让 balance 变负。
+## Behavior rules
 
-## Problem 09-08 🟡 Intermediate — Rectangle
-写 `Rectangle`，有 width/height、constructor、`area()` 和 `perimeter()`。
+- A new task starts incomplete.
+- `updateEstimate` changes the estimate only when minutes is positive.
+- `toString` returns a readable line such as `[TODO] Read Arrays (25 min)` or `[DONE] Read Arrays (25 min)`.
+- Keep fields private; `main` may not write `task.complete = true`.
 
-## Problem 09-09 🟡 Intermediate — Static count
-写 `Ticket` class，使用 static field 统计已创建 Ticket 数，并提供 static getter。在 main 创建三张票。
+## Required app behavior
 
-## Problem 09-10 🟡 Intermediate — Reference sharing
-创建一个 `ArrayList<String>` 或对象变量 a，然后 `b = a`，经 b 修改后打印 a。用注释解释结果。
+In `main`, put at least three `StudyTask` objects in an `ArrayList<StudyTask>`. Mark one complete. Use an enhanced for loop to print all tasks and count the remaining estimated minutes of incomplete tasks.
 
-## Level 3 — 3 problems
+## Acceptance checks
 
-## Problem 09-11 🔴 Advanced — Clock
-写 `Clock`，保存 hour/minute；constructor 验证 0–23 与 0–59，`tick()` 推进一分钟并正确进位，`toString()` 返回 `HH:MM`。
+1. A negative `updateEstimate(-5)` leaves the old value unchanged.
+2. Calling `markComplete()` changes only that object.
+3. Two tasks with different titles print different state lines.
+4. Your application does not use parallel `ArrayList<String>` / `ArrayList<Integer>` lists.
 
-## Problem 09-12 🔴 Advanced — Quiz question
-写 `Question`，有 prompt、answer、`checkAnswer(String response)`；比较文字内容时必须正确。
+## Stretch goal
 
-## Problem 09-13 🔴 Advanced — Immutable-ish point
-写 `Point`，private x/y，constructor、getters、`distanceFromOrigin()`；不要提供 setter。解释这如何限制状态改变。
+Add a `private static int createdCount` field to `StudyTask` and a public static getter. Explain why this is static rather than an instance field.
 
-## AP CSA Style — 2 problems
+## Reflection
 
-## Problem 09-14 ⭐ AP CSA — Class design FRQ
-实现 `Temperature` class：private `double celsius`、constructor、`getCelsius()`、`getFahrenheit()`、`isFreezing()`。在 main 创建 -5 与 20 测试。
-
-## Problem 09-15 ⭐ AP CSA — Method contract
-为 `Movie` class 实现 `rate(int stars)`：只接受 1–5，否则不修改当前 rating；再写 `getRating()`。用 main 展示无效评分不改变对象。
+Write a short comparison: Python’s `self.title = title` versus Java’s `this.title = title`. Optional focused drills: [Drill Bank](./drills.md).

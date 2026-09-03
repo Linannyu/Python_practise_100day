@@ -1,56 +1,51 @@
-# Chapter 10 Practice — Inheritance
+# Day 10 Lab — Add Specialized Study Tasks
 
-每个子类 constructor 先考虑父类需要怎样初始化。若重写 method，写 `@Override`。
+## 🎯 Lab goal
 
-## Level 1 — 5 problems
+Extend yesterday’s object model rather than rewrite it. Use inheritance to give different kinds of study tasks shared data plus specialized behavior.
 
-## Problem 10-01 🟢 Beginner — Animal and Dog
-写 `Animal` class，含 `speak()` 打印 `...`；写 `Dog extends Animal`，重写为 `Woof`。
+**Today’s Java:** `extends`, superclass, subclass, `super(...)`, method overriding, `@Override`, polymorphism.
 
-## Problem 10-02 🟢 Beginner — Parent constructor
-让 `Animal` 有接收 name 的 constructor；让 `Dog` constructor 用 `super(name)`。
+**Reuse from Days 01–09:** classes, private fields, constructors, ArrayList, loops, String reports.
 
-## Problem 10-03 🟢 Beginner — Cat
-加 `Cat extends Animal`，重写 `speak()` 为 `Meow`。在 main 创建并调用。
+## Mission
 
-## Problem 10-04 🟢 Beginner — Super method
-在 `Dog.speak()` 中先调用 `super.speak()`，再打印 `Woof`。
+Create `TaskHierarchyApp.java` with this class design:
 
-## Problem 10-05 🟢 Beginner — Inherited getter
-让父类保存 private name 和 `getName()`；子类使用 getter 打印自己的 name。
+```text
+StudyTask
+├── CodingTask
+└── ReadingTask
+```
 
-## Level 2 — 5 problems
+`StudyTask` stores `title`, `estimatedMinutes`, and completion state. It provides `markComplete()`, `isComplete()`, and `getEstimatedMinutes()`.
 
-## Problem 10-06 🟡 Intermediate — Vehicle
-写 `Vehicle`（brand、getBrand、move）；写 `Car extends Vehicle`，重写 move 输出 `<brand> drives`。
+- `CodingTask` adds `String language`.
+- `ReadingTask` adds `int pages`.
+- Both subclasses override `getDescription()`.
 
-## Problem 10-07 🟡 Intermediate — Employee roles
-写 `Employee`（name、pay）和 `Manager extends Employee`（额外 bonus）；Manager 实现 `totalPay()`。
+## Required behavior
 
-## Problem 10-08 🟡 Intermediate — Polymorphism
-把 `Animal pet = new Dog("Mochi")` 放 main，调用 `pet.speak()`；用注释说明为何 Dog version 运行。
+1. Each subclass constructor calls `super(title, estimatedMinutes)`.
+2. `CodingTask.getDescription()` returns a line containing its title and language.
+3. `ReadingTask.getDescription()` returns a line containing its title and page count.
+4. In `main`, store one of each subclass in `ArrayList<StudyTask>`.
+5. Loop over the parent-type list and print `getDescription()` for every object.
 
-## Problem 10-09 🟡 Intermediate — Shape area
-写 `Shape` 的 `area()` 返回 0；`Square extends Shape` 保存 side 并重写 area。
+## Required test
 
-## Problem 10-10 🟡 Intermediate — Override check
-故意把一个 child method 参数改错，观察/解释 `@Override` 如何帮助发现问题；再修复。
+Create a coding task for Java and a reading task for AP CSA. Mark only one complete. Print descriptions and completion state. Confirm that the subclass version of `getDescription()` runs even though your loop variable has type `StudyTask`.
 
-## Level 3 — 3 problems
+## Acceptance checks
 
-## Problem 10-11 🔴 Advanced — Account types
-写 `Account`（owner、balance、deposit）；`SavingsAccount` 增加 rate 和 `addInterest()`，使用继承来的 balance 的安全接口设计。
+- No duplicated title/minutes/complete fields in subclasses.
+- `@Override` compiles on both subclass methods.
+- You can explain why `StudyTask task = new CodingTask(...)` is valid.
 
-## Problem 10-12 🔴 Advanced — Library items
-写 `LibraryItem`（title、loanPeriod() 返回 14）与 `DVD`（重写 loanPeriod 返回 7）；用父类引用的 array/list 调用。
+## Stretch goal
 
-## Problem 10-13 🔴 Advanced — Constructor chain trace
-写 Parent/Child，各 constructor 打印一条文字；在 main 创建 Child，解释输出顺序。
+Add `QuizTask extends StudyTask` with a question count and a different description. Do not change the printing loop.
 
-## AP CSA Style — 2 problems
+## Reflection
 
-## Problem 10-14 ⭐ AP CSA — Override FRQ
-实现 `Quiz` 的 `getPoints()` 返回 points；实现 `BonusQuiz extends Quiz`，额外保存 bonus 并重写 getPoints 返回 points + bonus。设计合理 constructor。
-
-## Problem 10-15 ⭐ AP CSA — Reference type trace
-写 `Animal[] pets = {new Dog(...), new Cat(...)}`，用循环调用 speak。解释变量的 reference type 和 object type 各负责什么。
+In [mistakes.md](../mistakes.md), explain in one sentence the difference between the reference type (`StudyTask`) and actual object type (`CodingTask`). Optional focused drills: [Drill Bank](./drills.md).
