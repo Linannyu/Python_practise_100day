@@ -19,11 +19,11 @@ Status: Not started
 Status: Not started
 
 ## Day 03 — Course Readiness Checker
-- [ ] Lesson
-- [ ] Main Lab compiled and runs
-- [ ] All acceptance checks passed
-- [ ] Reflection / mistake review
-- [ ] Optional drills used if needed
+- [x] Lesson
+- [x] Main Lab compiled and runs
+- [x] All acceptance checks passed
+- [x] Reflection / mistake review
+- [x] Optional drills used if needed
 Status: Not started
 
 ## Day 04 — Study Week Analyzer
