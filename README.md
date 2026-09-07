@@ -52,3 +52,4 @@
 | Day 45 | Java_for_Python_APCSA | Day01 | 区分print和println的区别 | 09/02/2026 |
 | Day 46 | Java_for_Python_APCSA | Day02 | 学习Java的变量和计算 | 09/03/2026 |
 | Day 47 | Java_for_Python_APCSA | Day03 | 学习Java的if语句 | 09/05/2026 |
+| Day 48 | 暂定 | 暂定 | 暂定 | 暂定 |
