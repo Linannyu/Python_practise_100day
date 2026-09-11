@@ -55,3 +55,4 @@
 | Day 48 | Java_for_Python_APCSA | Day04 | 学习java的for循环 | 09/07/2026 |
 | Day 49 | 《web安全攻防渗透测试实战指南》 | 搭建DVWA、SQLi-LABS、upload-labs | SQLMap入门 | 09/08/2026 |
 | Day 50 | Java_for_Python_APCSA | Day05 | def函数 | 09/09/2026 |
+| Day 51 | Java_for_Python_APCSA | Day06 | 访问字符串中的字符 | 09/10/2026 |
