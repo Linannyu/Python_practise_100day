@@ -56,4 +56,5 @@
 | Day 49 | 《web安全攻防渗透测试实战指南》 | 搭建DVWA、SQLi-LABS、upload-labs | SQLMap入门 | 09/08/2026 |
 | Day 50 | Java_for_Python_APCSA | Day05 | def函数 | 09/09/2026 |
 | Day 51 | Java_for_Python_APCSA | Day06 | 访问字符串中的字符 | 09/10/2026 |
-| Day 52 | Java_for_Python_APCSA | Day07 | 完成：练习题 | 09/11/2026 |
+| Day 52 | Java_for_Python_APCSA | Day07 | 完成：练习题 | 09/12/2026 |
+| Day 53 | Java_for_Python_APCSA | Day08 | 数组 | 09/13/2026 |
