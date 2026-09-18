@@ -60,3 +60,4 @@
 | Day 53 | Java_for_Python_APCSA | Day08 | 数组 | 09/13/2026 |
 | Day 54 | APCSA_Work | 01. My Robot | 画图制作robot | 09/14/2026 |
 | Day 55 | APCSA_Work | 02. My Robot | Update | 09/15/2026 |
+| Day 56 | APCSA_Work | 03. My Robot | 添加部分随鼠标移动 | 09/17/2026 |
