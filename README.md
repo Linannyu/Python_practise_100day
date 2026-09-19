@@ -61,3 +61,4 @@
 | Day 54 | APCSA_Work | 01. My Robot | 画图制作robot | 09/14/2026 |
 | Day 55 | APCSA_Work | 02. My Robot | Update | 09/15/2026 |
 | Day 56 | APCSA_Work | 03. My Robot | 添加部分随鼠标移动 | 09/17/2026 |
+| Day 57 | APCSA_Work | 04. My Robot | Update | 09/18/2026 |
