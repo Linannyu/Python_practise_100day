@@ -1,20 +1,38 @@
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
+    int x = 300;
+    int y = 300;
+    // color
+    int r = 0;
+    int g = 0;
+    int b = 0;
+    int SkinColor = color(249, 223, 196);
 
     public void settings() {
         size(600, 600);
-        
     }
 
     public void setup() {
         background(220);
-        
+    }
+
+    public void keyPressed() {
+        if (key == CODED) {
+            if (keyCode == LEFT) {
+                x -= 10;
+            } else if (keyCode == RIGHT) {
+                x += 10;
+            } else if (keyCode == UP) {
+                y -= 10;
+            } else if (keyCode == DOWN) {
+                y += 10;
+            }
+        }
     }
 
     public void draw() {
-        int x = mouseX;
-        int y = mouseY;
+
 
         background(220);
         textSize(18);
@@ -22,49 +40,53 @@ public class Sketch extends PApplet {
         strokeWeight(1);
         stroke(0, 0, 0);
         text(x + " " + y, 50, 50);
+        // center(310,255)
+
+
         // antenna
-        fill(0xFFf9dfc4);
-        triangle(310, 40, 270, 95, 350, 95);
+        fill(SkinColor);
+        //triangle(310, 40, 270, 95, 350, 95);
+        triangle(x, y - 215, x - 40, y - 160, x + 40, y - 160);
 
 
         // head
-        fill(0xFFf9dfc4);
-        ellipse(310, 165, 200, 150);
+        fill(SkinColor);
+        ellipse(x, y - 90, 200, 150);
 
         // left ear
         noStroke();
         fill(0xFFFFD4A9);
-        ellipse(210, 165, 30, 50);
+        ellipse(x - 100, y - 90, 30, 50);
         fill(0xFF854e27);
-        ellipse(200, 165, 20, 40);
+        ellipse(x - 110, y - 90, 20, 40);
         fill(0xFF644030);
-        ellipse(190, 165, 15, 30);
+        ellipse(x - 120, y - 90, 15, 30);
         // right ear
         fill(0xFFFFD4A9);
-        ellipse(410, 165, 30, 50);
+        ellipse(x + 100, y - 90, 30, 50);
         fill(0xFF854e27);
-        ellipse(420, 165, 20, 40);
+        ellipse(x + 110, y - 90, 20, 40);
         fill(0xFF644030);
-        ellipse(430, 165, 15, 30);
+        ellipse(x + 120, y - 90, 15, 30);
 
         // left leg
         stroke(0 ,0 ,0);
-        fill(0xFFf9dfc4);
-        rect(270, 340, 25, 60);
+        fill(SkinColor);
+        rect(x - 40, y + 85, 25, 60);
         // right leg
-        rect(325, 340, 25, 60);
+        rect(x + 15, y + 85, 25, 60);
 
         // Body
-        fill(0xFFf9dfc4);
-        rect(250, 225, 120, 125, 0, 0, 30, 30);
+        fill(SkinColor);
+        rect(x - 60, y - 30, 120, 125, 0, 0, 30, 30);
 
         // feet
         stroke(0, 0, 0);
-        rect(255, 390, 43, 25, 30, 0, 0, 2);
-        rect(322, 390, 43, 25, 0, 30, 2, 0);
+        rect(x - 55, y + 135, 43, 25, 30, 0, 0, 2);
+        rect(x + 12, y + 135, 43, 25, 0, 30, 2, 0);
 
         // arm
-        fill(0xFFf9dfc4);
+        fill(SkinColor);
         ellipse(x - 75, y + 15, 25, 80);
         ellipse(x + 75, y + 15, 25, 80);
 
@@ -92,7 +114,7 @@ public class Sketch extends PApplet {
         circle(x, y - 115, 20);
 
         // mouth
-        fill(0xFFf9dfc4);
+        fill(SkinColor);
         arc(x + 1, y - 85, 30, 20, 0, PI);
 
         // duzi
@@ -104,7 +126,7 @@ public class Sketch extends PApplet {
         rect(x - 30, y + 25, 60, 30);
 
         // 
-        fill(0xFFf9dfc4);
+        fill(SkinColor);
         square(x-90 ,y - 30, 30);
         square(x+60, y -30, 30);
 
@@ -113,11 +135,30 @@ public class Sketch extends PApplet {
         strokeWeight(3);
         circle(x, y, 20);
 
-        // center(310,255)
-    
+        // x++;
+        /*
+        if (x >= width + 150) {
+            x = -100;
+        } else if (x < -150) {
+            x = width + 100;;
+        }
+        */
+        // y = -165 and 795,x = -130 and 730
+        if (x <= -130 || x >= width + 130 || y <= -165 || y >= width + 195) {
+            x = 300;
+            y = 300;
+            for (int i = 0; i < 2; i++) {
+                SkinColor = color(255);
+                SkinColor = color(249, 223, 196);
+            }
 
+        }
+
+        
 
 
     }
+
+
 
 }

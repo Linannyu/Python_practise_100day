@@ -42,4 +42,6 @@ History
 
 # Databases
 *.db
-*.sqlite
+*.sqlite.gradle/
+__pycache__/
+.venv/
