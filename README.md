@@ -64,3 +64,4 @@
 | Day 57 | APCSA_Work | 04. My Robot | Update | 09/18/2026 |
 | Day 58 | APCSA_Work | 04. My Robot | Update | 09/19/2026 |
 | Day 59 | APCSA_Work | 05. My Robot | move | 09/21/2026 |
+| Day 60 | APCSA_Work | 06. My Robot | background | 09/22/2026 |

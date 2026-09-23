@@ -2,12 +2,14 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
     int x = 300;
-    int y = 300;
+    int y = 350;
     // color
-    int r = 0;
-    int g = 0;
-    int b = 0;
+    int r = 150;
+    int g = 210;
+    int b = 250;
     int SkinColor = color(249, 223, 196);
+
+
 
     public void settings() {
         size(600, 600);
@@ -32,9 +34,25 @@ public class Sketch extends PApplet {
     }
 
     public void draw() {
+        //background
+        //sky
+        background(r, g, b);
+
+        //Far Grass
+        noStroke();
+        fill(145, 200, 120);
+        ellipse(100, 500 ,600, 200);
+        ellipse(500, 500 ,600, 250);
+
+        //front Grass
+        fill(100, 180, 80);
+        ellipse(100, 570 ,660, 200);
+        ellipse(500, 570 ,660, 250);
 
 
-        background(220);
+
+
+
         textSize(18);
         fill(255, 0, 0);
         strokeWeight(1);
@@ -135,6 +153,8 @@ public class Sketch extends PApplet {
         strokeWeight(3);
         circle(x, y, 20);
 
+        
+
         // x++;
         /*
         if (x >= width + 150) {
@@ -146,13 +166,17 @@ public class Sketch extends PApplet {
         // y = -165 and 795,x = -130 and 730
         if (x <= -130 || x >= width + 130 || y <= -165 || y >= width + 195) {
             x = 300;
-            y = 300;
+            y = 350;
             for (int i = 0; i < 2; i++) {
                 SkinColor = color(255);
                 SkinColor = color(249, 223, 196);
             }
 
         }
+
+
+        // IO.println(r + " " + g + " " + b);
+
 
         
 
