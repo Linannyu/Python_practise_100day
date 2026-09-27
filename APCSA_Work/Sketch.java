@@ -8,6 +8,17 @@ public class Sketch extends PApplet {
     int g = 210;
     int b = 250;
     int SkinColor = color(249, 223, 196);
+    int SkyTime = 0;
+
+    int x1 = mouseX;
+    int y1 = mouseY;
+
+    int battery = 100;
+    int batteryR = 0;
+    int batteryG = 255;
+    int batteryB = 0;
+
+
 
 
 
@@ -21,14 +32,30 @@ public class Sketch extends PApplet {
 
     public void keyPressed() {
         if (key == CODED) {
-            if (keyCode == LEFT) {
-                x -= 10;
-            } else if (keyCode == RIGHT) {
-                x += 10;
-            } else if (keyCode == UP) {
-                y -= 10;
-            } else if (keyCode == DOWN) {
-                y += 10;
+            if (battery > 0) {
+                if (keyCode == LEFT) {
+                    x -= 10;
+                } else if (keyCode == RIGHT) {
+                    x += 10;
+                } else if (keyCode == UP) {
+                    y -= 10;
+                } else if (keyCode == DOWN) {
+                    y += 10;
+                }
+                battery -= 5;
+                IO.println(battery);
+            }
+        }
+    }
+    
+    public void mousePressed() {
+        if (mouseButton == LEFT && battery < 100) {
+            battery += 10;
+            IO.println(battery);
+            if (battery >= 20) {
+                batteryR = 0;
+                batteryG = 255;
+                batteryB = 0;
             }
         }
     }
@@ -49,15 +76,13 @@ public class Sketch extends PApplet {
         ellipse(100, 570 ,660, 200);
         ellipse(500, 570 ,660, 250);
 
-
-
-
-
         textSize(18);
         fill(255, 0, 0);
         strokeWeight(1);
         stroke(0, 0, 0);
-        text(x + " " + y, 50, 50);
+        x1 = mouseX;
+        y1 = mouseY;
+        text(x1 + " " + y1, 50, 50);
         // center(310,255)
 
 
@@ -103,14 +128,22 @@ public class Sketch extends PApplet {
         rect(x - 55, y + 135, 43, 25, 30, 0, 0, 2);
         rect(x + 12, y + 135, 43, 25, 0, 30, 2, 0);
 
-        // arm
+        // left hand
         fill(SkinColor);
+
         ellipse(x - 75, y + 15, 25, 80);
         ellipse(x + 75, y + 15, 25, 80);
 
         fill(0xFFFFFFFF);
         circle(x + 76, y + 55, 30);
         circle(x - 75, y + 55, 30);
+
+        fill(SkinColor);
+        square(x-90 ,y - 30, 30);
+        square(x+60, y -30, 30);
+
+        
+
 
         //eyes
         strokeWeight(1);
@@ -139,16 +172,18 @@ public class Sketch extends PApplet {
         fill(0xFFebd6cb);
         ellipse(x, y + 25, 90, 100);
 
-        // pocket
-        fill(255, 0, 0);
+        // battery
+        fill(batteryR, batteryG, batteryB);
         rect(x - 30, y + 25, 60, 30);
+        noStroke();
+        fill(255, 255, 0);
+        triangle(x + 5, y + 27, x - 10, y + 40, x + 4, y + 40);
+        triangle(x + 0, y + 40, x + 15, y + 40, x - 2, y + 53);
 
-        // 
-        fill(SkinColor);
-        square(x-90 ,y - 30, 30);
-        square(x+60, y -30, 30);
+
 
         // button (center)
+        stroke(0, 0, 0);
         fill(0xFFEFEFFF);
         strokeWeight(3);
         circle(x, y, 20);
@@ -167,15 +202,34 @@ public class Sketch extends PApplet {
         if (x <= -130 || x >= width + 130 || y <= -165 || y >= width + 195) {
             x = 300;
             y = 350;
-            for (int i = 0; i < 2; i++) {
-                SkinColor = color(255);
-                SkinColor = color(249, 223, 196);
-            }
+            // for (int i = 0; i < 2; i++) {
+            //     SkinColor = color(255);
+            //     SkinColor = color(249, 223, 196);
+            // }
 
+        }
+        
+        SkyTime++;
+        if (SkyTime % 10 == 0) {
+            if (r > 0) {
+                r--;
+            }
+            if (g > 0) {
+                g--;
+            }
+            if (b > 31) {
+                b--;
+            }
         }
 
 
         // IO.println(r + " " + g + " " + b);
+
+        if (battery <= 20) {
+            batteryR = 255;
+            batteryG = 0;
+            batteryB = 0;
+        }
 
 
         
