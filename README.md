@@ -67,3 +67,4 @@
 | Day 60 | APCSA_Work | 06. My Robot | background | 09/22/2026 |
 | Day 61 | APCSA_Work | 07. My Robot | Final | 09/26/2026 |
 | Day 62 | NULL | NULL | NULL | 09/27/2026 |
+| Day 63 | 2026-2027Classroom | 添加APCSA_Work和Data_Science_with_Python | 放入截止目前的进度 | 09/28/2026 |
