@@ -17,10 +17,10 @@ print(people_named_anna)
 # Search for an item in the series
 print()
 print('Is "2002" in the people_named_anna series?') 
-print("2002" in people_named_anna)
+print("2002" in people_named_anna) # String,find index
 print()
 print("Is 2002 in the people_named_anna series?") 
-print(2002 in people_named_anna) 
+print(2002 in people_named_anna) # int,find data
 print()
 print('Is "1983" in the people_named_anna series?') 
 print("1983" in people_named_anna) 
@@ -28,14 +28,15 @@ print("1983" in people_named_anna)
 # Print summary statistics
 
 print()
-print("Mean:") 
+print("Mean:") # Calculate the average value.
 print(people_named_anna.mean())
 print()
-print("Median:")
+print("Median:") # Calculate the median value of all the data.
 print(people_named_anna.median())
 print()
-print("Mode:")
+print("Mode:") # Find the number that appears most frequently.
 print(people_named_anna.mode())
 print()
-print("Summary Statistics:")
+print("Summary Statistics:") 
+# describe() can obtain the count, mean, standard deviation, minimum, first quartile, median, third quartile, and maximum of the data all at once.
 print(str(people_named_anna.describe()))
