@@ -71,3 +71,4 @@
 | Day 64 | 2026-2027Classroom | Data_Science_with_Python | Lession 1.4 | 10/01/2026 |
 | Day 65 | 2026-2027Classroom | Data_Science_with_Python | Lession 1.5 | 10/02/2026 |
 | Day 66 | 2026-2027Classroom | Data_Science_with_Python | Lession 1.5 | 10/04/2026 |
+| Day 67 | 2026-2027Classroom | APCSA_Work |  03.scene composition | 10/05/2026 |
