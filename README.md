@@ -76,3 +76,4 @@
 | Day 69 | 2026-2027Classroom | Data_Science_with_Python | Lession 1.7 | 10/07/2026 |
 | Day 70 | 2026-2027Classroom | Data_Science_with_Python | Lession 1.8 | 10/08/2026 |
 | Day 71 | 2026-2027Classroom | APCSA_Work | 04.name tag | 10/11/2026 |
+| Day 72 | 2026-2027Classroom | APCSA_Work | 04.name tag Update | 10/12/2026 |

@@ -5,7 +5,7 @@ public class Sketch extends PApplet {
     Scanner s,d;
     String name,last_name,first_name;
     String pronouns;
-    String tagColor;
+    int tagColor;
     int space = -1;
     public void settings() {
         size(600, 600);
@@ -13,7 +13,6 @@ public class Sketch extends PApplet {
 
     public void setup() {
         s = new Scanner(System.in);
-        d = new Scanner(System.in);
         // get user input (two times)
         while (space == -1) {
             IO.print("Please enter your fullname:");
@@ -25,48 +24,56 @@ public class Sketch extends PApplet {
         last_name = name.substring(space + 1);
         first_name = name.substring(0, space);
 
-        IO.println(last_name.compareTo(first_name) );
+        if (first_name.toLowerCase().compareTo(last_name.toLowerCase()) < 0) {
+            first_name = first_name.toUpperCase();
+            last_name = last_name.toUpperCase();
+        }
+        if (last_name.length() > first_name.length()) {
+            last_name = last_name.substring(0,1);
+        }
+        name = first_name + ' ' + last_name;
+
 
         IO.print("What is your pronoun?:");
-        pronouns = d.next();
+        pronouns = s.next().toLowerCase();
 
         if (pronouns.equals("he") || pronouns.equals("him")) {
-            tagColor = "blue";
+            tagColor = color(102, 255, 236);
         } else if (pronouns.equals("she") || pronouns.equals("her")) {
-            tagColor = "pink";
+            tagColor = color(255, 102, 255);
         } else if (pronouns.equals("they") || pronouns.equals("them")) {
-            tagColor = "purple";
+            tagColor = color(145, 0, 255);
+        } else {
+            tagColor = color(0);
         }
-        
-
-
 
     } // TO DO: comment this closing bracket!
 
     public void draw() {
         background(220);
+        noStroke();
+        fill(255, 255, 255);
+        rect(95, 195, 410, 260, 10);
         // design your name tag here:
-        if (tagColor.equals("blue")) {
-            fill(102, 255, 236);
-        } else if (tagColor.equals("pink")) {
-            fill(255, 255, 255);
-        } else if (tagColor.equals("purple")) {
-            fill(255, 255, 255);
-        }
+        fill(tagColor);
         rect(100, 200, 400, 250, 10);
 
         fill(255, 255, 255);
         rect(110, 320, 380, 120, 10);
+        
         fill(0);
+        textAlign(CENTER,CENTER);
         textSize(10);
         text(mouseX + " " + mouseY, 100, 100);
         textSize(70);
-        text("Hello", 230, 260);
+        fill(255, 255, 255);
+        text("Hello", 300, 230);
         textSize(50);
-        text("MY NAME IS", 180, 305);
+        text("MY NAME IS", 300, 290);
 
         textSize(50);
-        text(name, 180, 380);
+        fill(0);
+        text(name, 300, 370);
 
 
 
