@@ -78,4 +78,4 @@
 | Day 71 | 2026-2027Classroom | APCSA_Work | 04.name tag | 10/11/2026 |
 | Day 72 | 2026-2027Classroom | APCSA_Work | 04.name tag Update | 10/12/2026 |
 | Day 73 | 2026-2027Classroom | APCSA_Work | 02.Caesar Cipher Project | 10/16/2026 |
-| Day 74 | 暂定 | 暂定 | 暂定 | 10/17/2026 |
+| Day 74 | 2026-2027Classroom | APCSA_Work | 05.whack-a-mole | 10/17/2026 |
